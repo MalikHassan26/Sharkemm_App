@@ -59,7 +59,8 @@ export const OBJECT_TWO= require('../../../../assets/objecttwo.png');
 export const OBJECT_THREE= require('../../../../assets/objectthree.png');
 export const GIF=require('../../../../assets/Full.gif');
 export const Line= require('../../../../assets/Line.png');
-export const TRANSFER_FILE= require('../../../../assets/transferfile.png');
+export const TRANSFER_FILE= require('../../../../assets/Component.png');
+export const Group_CARD= require('../../../../assets/Group.png');
 export const PRIMERY_CARD= require('../../../../assets/primarycard.png');
 export const VIDEO_ICON= require('../../../../assets/videoicon.png');
 

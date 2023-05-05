@@ -33,6 +33,7 @@ import {
   FONT_SCALE,
   FONTS,
   GIF,
+  Group_CARD,
   HALF,
   HALF_MULTICOLOR,
   Line,
@@ -46,7 +47,6 @@ import {
   THEME_TEXT_COLORS,
   TRANSFER_FILE,
   VALET,
-  VIDEO_ICOM,
   VIDEO_ICON,
 } from '../../Shell/Theme/css/base';
 import {TextInput, TouchableOpacity} from 'react-native-gesture-handler';
@@ -392,7 +392,7 @@ const HomeScreen = ({props,navigation}) => {
         <Image source={TRANSFER_FILE} style={{height:25,width:25}}/>
       </TouchableOpacity>
       <TouchableOpacity style={styles?.cardsStyle} activeOpacity={0.8}>
-        <Image source={PRIMERY_CARD} style={{height:25,width:25}}/>
+        <Image source={Group_CARD} style={{height:25,width:25}}/>
       </TouchableOpacity>
        </View>
 
