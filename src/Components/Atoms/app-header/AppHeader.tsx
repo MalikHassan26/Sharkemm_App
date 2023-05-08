@@ -1,7 +1,7 @@
 import {View, Text} from 'react-native';
 import React from 'react';
-import {StatusBar} from 'react-native';
-import {COLORS, FONT_SCALE, THEME_COLORS, USER_DUMMY} from '../../../Shell/Theme/css/base';
+import {StatusBar,Image} from 'react-native';
+import {COLORS, FONT_SCALE, THEME_COLORS, USER_ADD, USER_DUMMY, VIDEO_ICON} from '../../../Shell/Theme/css/base';
 import {ImageBackground} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useFocusEffect} from '@react-navigation/native';
@@ -61,8 +61,7 @@ export default function AppHeader({
         <Ionicons
           name="chevron-back-sharp"
           onPress={onBackPress}
-          size={30 / FONT_SCALE}
-
+          size={22 / FONT_SCALE}
           color={THEME_COLORS.white}
         />
        
@@ -70,13 +69,7 @@ export default function AppHeader({
         </View>
         
        {addPerson && <View style={{flex:1,alignContent:'flex-end'}}>
-        <Ionicons
-          name="person-add-sharp"
-         
-          size={25 / FONT_SCALE}
-          style={{alignSelf:'flex-end'}}
-          color={THEME_COLORS.white}
-        />
+       <Image source={USER_ADD} resizeMode={'contain'} style={{height:20,width:20,alignSelf:'flex-end'}}/>
         </View>}
         <View />
       </View>

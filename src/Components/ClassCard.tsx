@@ -7,7 +7,7 @@ import {
   ImageBackground,Image
 } from 'react-native';
 import * as Progress from 'react-native-progress';
-import {CARDOCEAN, COLOR_PROGRESS_BAR, EIGHTEEN_PERCENT, HALF_MULTICOLOR, THEME_COLORS, THEME_TEXT_COLORS, THIRTEEN_PERCENT, VALET_TITLE} from '../Shell/Theme/css/base';
+import {CARDOCEAN, COLOR_PROGRESS_BAR, EIGHTEEN_PERCENT, FONTS, FONT_SCALE, HALF_MULTICOLOR, THEME_COLORS, THEME_TEXT_COLORS, THIRTEEN_PERCENT, VALET_TITLE} from '../Shell/Theme/css/base';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 const ClassCard = ({subjectName = 'Physics', percent = 10, noOfCards = 5,classofMastery,vault,total}) => {
   return (
@@ -17,7 +17,9 @@ const ClassCard = ({subjectName = 'Physics', percent = 10, noOfCards = 5,classof
           style={{
             textAlign: 'center',
             color: 'white',
-            fontWeight: 'bold',
+            
+            fontFamily:FONTS.bold,
+            letterSpacing:1.5,
           }}>
           {subjectName}{"  "}
         </Text>
@@ -72,13 +74,13 @@ const ClassCard = ({subjectName = 'Physics', percent = 10, noOfCards = 5,classof
         <View style={{flexDirection:'row',justifyContent:'space-between'}}>
       <Text
           style={{
-            color: THEME_COLORS.lightBlue,fontSize:12
+            color: THEME_COLORS.lightBlue,fontSize:12,fontFamily:FONTS.regular
           }}>
          Cards
         </Text> 
          <Text
           style={{
-            color: THEME_COLORS.lightBlue,fontSize:12
+            color: THEME_COLORS.lightBlue,fontSize:12,fontFamily:FONTS.regular
           }}>
          {noOfCards}/223
         </Text> 
@@ -91,13 +93,13 @@ const ClassCard = ({subjectName = 'Physics', percent = 10, noOfCards = 5,classof
       <View style={{flexDirection:'row',justifyContent:'space-between',top:vault?10:0}}>
       <Text
           style={{
-            color: THEME_COLORS.lightBlue,fontSize:12
+            color: THEME_COLORS.lightBlue,fontSize:12,fontFamily:FONTS.regular
           }}>
          Ranks
         </Text> 
          <Text
           style={{
-            color: THEME_COLORS.lightBlue,fontSize:12
+            color: THEME_COLORS.lightBlue,fontSize:12,fontFamily:FONTS.regular
           }}>
           56th
         </Text> 
@@ -118,7 +120,7 @@ const ClassCard = ({subjectName = 'Physics', percent = 10, noOfCards = 5,classof
           marginTop:15,alignContent:'center'}}>
           <Text
               style={{
-                color: THEME_COLORS.lightBlue,fontSize:12
+                color: THEME_COLORS.lightBlue,fontSize:12/FONT_SCALE,fontFamily:FONTS.regular
               }}>
                  <Ionicons name={'square'} color={'#C60237'}/>
                
@@ -126,7 +128,7 @@ const ClassCard = ({subjectName = 'Physics', percent = 10, noOfCards = 5,classof
             </Text> 
              <Text
               style={{
-                color: THEME_COLORS.lightBlue,fontSize:12
+                color: THEME_COLORS.lightBlue,fontSize:12,fontFamily:FONTS.regular
               }}>
                 <Ionicons name={'square'} color={'#A80279'}/>
                 {" "}20
@@ -141,7 +143,7 @@ const ClassCard = ({subjectName = 'Physics', percent = 10, noOfCards = 5,classof
 const styles = StyleSheet.create({
   cardView: {
     width: Dimensions.get('screen').width / 2.5,
-    height: 180,
+    height: 150,
     backgroundColor: 'white',
     borderRadius: 10,
     elevation: 8,
@@ -168,6 +170,7 @@ const styles = StyleSheet.create({
    width: '100%',
    height: '60%',
   paddingTop: 10,
+
   },
   imageView: {
     height: '90%',

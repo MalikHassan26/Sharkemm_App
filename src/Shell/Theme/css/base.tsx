@@ -59,10 +59,12 @@ export const OBJECT_TWO= require('../../../../assets/objecttwo.png');
 export const OBJECT_THREE= require('../../../../assets/objectthree.png');
 export const GIF=require('../../../../assets/Full.gif');
 export const Line= require('../../../../assets/Line.png');
-export const TRANSFER_FILE= require('../../../../assets/Component.png');
-export const Group_CARD= require('../../../../assets/Group.png');
+export const TRANSFER_FILE= require('../../../../assets/transferfile.png');
 export const PRIMERY_CARD= require('../../../../assets/primarycard.png');
+export const Group_Icon= require('../../../../assets/Group.png');
+export const Component_Icon= require('../../../../assets/Component.png');
 export const VIDEO_ICON= require('../../../../assets/videoicon.png');
+export const USER_ADD= require('../../../../assets/user-plus.png');
 
 export const BACKGROUND= require('../../../../assets/background.png');
 
@@ -75,13 +77,13 @@ const BASELINE_GAPS_DIRECTIONS: any = {
   V: 'Vertical',
 };
 
-export const FONTS: any = {
-  light: 'Poppins-Light',
-  regular: 'Poppins-Regular',
-  medium: 'Poppins-Medium',
-  semiBold: 'Poppins-SemiBold',
-  bold: 'Poppins-Bold',
-  black: 'Poppins-Black',
+export const FONTS = {
+  light: 'Proxima-Nova-Light',
+  regular: 'Proxima-Nova-Regular',
+  medium: 'Proxima-Nova-Thin',
+  semiBold: 'Proxima-Nova-SemiBold',
+  bold: 'Proxima-bold',
+  black: 'Proxima-Black',
 };
 
 const BASELINE_GAPS = {
@@ -263,7 +265,7 @@ export const baseStyles = StyleSheet.create({
     ...ANDROID_FONT_MARGIN,
   },
   fontType: {
-    fontFamily: FONTS.regualr,
+    fontFamily: FONTS.regular,
     ...ANDROID_FONT_MARGIN,
   },
   fontLight: {

@@ -29,11 +29,12 @@ import {
   baseStyles,
   CARDOCEAN,
   COMEPLETE_CIRCLE,
+  Component_Icon,
   FISH,
   FONT_SCALE,
   FONTS,
   GIF,
-  Group_CARD,
+  Group_Icon,
   HALF,
   HALF_MULTICOLOR,
   Line,
@@ -156,7 +157,8 @@ const HomeScreen = ({props,navigation}) => {
           backgroundColor={THEME_COLORS.primary}
         />
       <View
-        style={{marginTop:20,paddingTop: 20, backgroundColor: THEME_COLORS.primary,borderBottomStartRadius:12,elevation:3,
+        style={{marginTop:20,paddingTop: 20,maxHeight:320,
+           backgroundColor: THEME_COLORS.primary,borderBottomStartRadius:12,elevation:3,
         borderBottomEndRadius:12}}>
         <View
           style={{
@@ -191,10 +193,11 @@ const HomeScreen = ({props,navigation}) => {
                     left: 60,
                     letterSpacing:2
                   }}>
-                  Hi, Jolliet!
+                  {" "}Hi, Jolliet!
                 </Text>
+                <Image source={FISH} style={{top:-10,width:'100%', height: 50,right:2}}></Image>
                 <FastImage
-                 style={{ width: 'auto', height: 50,top:-10 }}
+                 style={{ width: '100%', height: 50,top:-60,opacity:0.4}}
                  source={GIF}
                  resizeMode={'contain'}
                    />
@@ -203,12 +206,13 @@ const HomeScreen = ({props,navigation}) => {
                 style={[
                   {
                     flexDirection: 'row',
+                    top:-30,
                     //  justifyContent: 'space-around',
-                    // marginHorizontal: 20,
+                    marginHorizontal: 10,
                    
                   },
                 ]}>
-                <View style={{ marginBottom:90}}/>
+                <View style={{ marginBottom:90,}}/>
                 
                   <ImageBackground
                     source={HALF_MULTICOLOR}
@@ -330,7 +334,7 @@ const HomeScreen = ({props,navigation}) => {
      
         </View>
        
-            <View style={{flexDirection:'row',borderRadius:8,top:-10}}>
+            <View style={{flexDirection:'row',borderRadius:8,top:-40}}>
               <Text
                   style={{
                     color: '#fff',
@@ -351,7 +355,7 @@ const HomeScreen = ({props,navigation}) => {
              
             
                </View> 
-               <View style={{flexDirection:'row',top:-10}}>
+               <View style={{flexDirection:'row',top:-40}}>
               <Text
                   style={{
                     color: '#fff',
@@ -389,10 +393,10 @@ const HomeScreen = ({props,navigation}) => {
         <Image source={PRIMERY_CARD} style={{height:25,width:25}}/>
       </TouchableOpacity>
       <TouchableOpacity style={styles?.cardsStyle} activeOpacity={0.8}>
-        <Image source={TRANSFER_FILE} style={{height:25,width:25}}/>
+        <Image source={Component_Icon} style={{height:25,width:25}}/>
       </TouchableOpacity>
       <TouchableOpacity style={styles?.cardsStyle} activeOpacity={0.8}>
-        <Image source={Group_CARD} style={{height:25,width:25}}/>
+        <Image source={Group_Icon} style={{height:25,width:25}}/>
       </TouchableOpacity>
        </View>
 

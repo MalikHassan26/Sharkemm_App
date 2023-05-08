@@ -1,6 +1,6 @@
 import {StatusBar} from 'react-native';
 import {StyleSheet} from 'react-native';
-import {COLORS, FONT_SCALE, THEME_COLORS} from '../../../Shell/Theme/css/base';
+import {COLORS, FONTS, FONT_SCALE, THEME_COLORS} from '../../../Shell/Theme/css/base';
 
 export default StyleSheet.create({
   contentContainer: {
@@ -8,9 +8,10 @@ export default StyleSheet.create({
     paddingHorizontal: 20 / FONT_SCALE,
   },
   headerText: {
-    fontFamily: 'Roboto-Medium',
-    fontSize: 22/ FONT_SCALE,
+    fontFamily: FONTS.bold,
+    fontSize: 20/ FONT_SCALE,
     color: THEME_COLORS.white,
+    lineHeight:24,
     // fontWeight: '900',
   },
   innerContainer: {

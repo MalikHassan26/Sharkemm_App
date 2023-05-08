@@ -12,6 +12,7 @@ export default StyleSheet.create({
   },
   SingUpButton: {
     marginTop: 10,
+    
     backgroundColor: '#203870',
     paddingHorizontal: 50,
     paddingVertical: 10,

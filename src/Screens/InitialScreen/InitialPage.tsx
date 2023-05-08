@@ -10,6 +10,7 @@ import CustomButton from '../../../src/Components/Atoms/Buttons/buttons';
 import {
   baseStyles,
   FONT_SCALE,
+  FONTS,
   MAINLOGO,
   THEME_COLORS,
   THEME_TEXT_COLORS,
@@ -63,15 +64,17 @@ const InitialScreen = ({navigation}) => {
         <Image
           source={MAINLOGO}
           resizeMode={'contain'}
-          style={[{width: '50%', height: '20%'}]}
+          style={[{width: 200, height: 126,marginBottom:20}]}
         />
         <Text
           style={[
             {
-              fontSize: 42 / FONT_SCALE,
+              fontSize: 42/ FONT_SCALE,
               color: THEME_COLORS.primary,
-              fontWeight: 'bold',
-              letterSpacing: 0.5,
+              fontFamily:FONTS.bold,
+              // fontWeight: 'bold',
+              letterSpacing: 3,
+              
             },
           ]}>
           {INITIAL_SCREEN.HEADING01}
@@ -79,30 +82,70 @@ const InitialScreen = ({navigation}) => {
         <Text
           style={[
             {
-              fontSize: 42 / FONT_SCALE,
+              fontSize: 42/ FONT_SCALE,
               color: THEME_COLORS.primary,
-              fontWeight: 'bold',
-              letterSpacing: 0.5,
+              fontFamily:FONTS.bold,
+              // fontWeight: 'bold',
+              letterSpacing: 3,
+              lineHeight:56
             },
           ]}>
           {INITIAL_SCREEN.HEADING02}
         </Text>
+        <View style={baseStyles.mV1_25x}>
         <Text
           style={[
-            baseStyles.fs14x,
-            baseStyles.fontMedium,
+            baseStyles.fs16x,
+            // baseStyles.fontMedium,
             {
               color: THEME_COLORS.primary,
-              fontSize: 14,
+            
+              fontFamily:FONTS.regular,
               textAlign: 'center',
-              marginHorizontal: 30,
+              marginHorizontal:50,
+              letterSpacing:0.5,
+              lineHeight:24
             },
           ]}>
-          {INITIAL_SCREEN.SUB_HEADING}
+          {INITIAL_SCREEN.SUB_HEADING_START}  <Text
+          style={[
+            baseStyles.fs16x,
+            // baseStyles.fontMedium,
+            {
+              color: THEME_COLORS.primary,
+            
+              fontFamily:FONTS.regular,
+              textAlign: 'center',
+              marginHorizontal:50,
+              letterSpacing:0.5,
+              lineHeight:24
+            },
+          ]}>
+          {INITIAL_SCREEN.SUB_HEADING_CENTER}
         </Text>
+        </Text>
+        
+        <Text
+          style={[
+            baseStyles.fs16x,
+            // baseStyles.fontMedium,
+            {
+              color: THEME_COLORS.primary,
+            
+              fontFamily:FONTS.regular,
+              textAlign: 'center',
+              marginHorizontal:70,
+              letterSpacing:0.5,
+              lineHeight:24
+            },
+          ]}>
+          {INITIAL_SCREEN.SUB_HEADING_END}
+        </Text>
+        </View>
         <CustomButton
           children={
-            <Text style={{color: '#fff'}}>{INITIAL_SCREEN.SIGN_UP}</Text>
+            <Text style={{color: '#fff',fontSize:15/FONT_SCALE,
+            fontFamily:FONTS.bold,lineHeight:20,letterSpacing:0.1}}>{INITIAL_SCREEN.SIGN_UP}</Text>
           }
           onPress={() => navigation.navigate('RegisterScreen')}
           style={Style.SingUpButton}
@@ -110,7 +153,9 @@ const InitialScreen = ({navigation}) => {
 
         <CustomButton
           children={
-            <Text style={{color: '#203870'}}>{INITIAL_SCREEN.SIGN_IN}</Text>
+            <Text style={{color: '#203870',
+            fontSize:15 / FONT_SCALE,
+            fontFamily:FONTS.bold,lineHeight:20,letterSpacing:0.1}}>{INITIAL_SCREEN.SIGN_IN}</Text>
           }
           onPress={() => navigation.navigate('LoginScreen')}
           style={Style.SingInButton}
