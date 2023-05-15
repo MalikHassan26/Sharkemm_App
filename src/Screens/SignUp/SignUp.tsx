@@ -16,7 +16,7 @@ import {
   FlatList,
 
 } from 'react-native';
-import {FONTS, THEME_COLORS, baseStyles} from '../../Shell/Theme/css/base';
+import {FONTS, FONT_SCALE, THEME_COLORS, baseStyles} from '../../Shell/Theme/css/base';
 import { useDispatch } from 'react-redux';
 import {register} from '../../Utils/Store/Actions/auth'
 import {AUTH, LOADER, USER} from '../../Utils/Store/Actions/type';
@@ -27,6 +27,7 @@ import AppHeader from '../../Components/Atoms/app-header/AppHeader';
 import SelectDropdown from 'react-native-select-dropdown';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { COLORS } from '../../Shell/Theme/css/base';
+
 
 const Academic_status=[
   {
@@ -48,15 +49,17 @@ const RegisterScreen = props => {
   // const Academic_status = ["MBBS", "MDCAT"]
 
   const data = [
-    { label: 'male',value:'male' },
-    { label: 'female',value:'female'},
-    { label: 'others' ,value:'others'},
+    { label: 'Male',value:'Male' },
+    { label: 'Female',value:'Female'},
+    { label: 'Others' ,value:'Others'},
   ];
 
   const [userfirstName, setUserFirstName] = useState('');
   const [userlastName, setUserLastName] = useState('');
   const [userName, setUserName] = useState('');
   const [userDOB, setDOB] = useState('');
+  const [userDOBMonth, setDOBMonth] = useState('');
+  const [userDOBYear, setDOBYear] = useState('');
   const [userSS, setSS] = useState('');
   const [userBID, setBID] = useState('');
   const [usergender, setUsergender] = useState('');
@@ -81,23 +84,31 @@ const RegisterScreen = props => {
    const handleSubmitButton = async() => {
     setErrortext('');
     if (!userfirstName) {
-      alert('Please fill user first name');
+      alert('Please Enter user first name');
       return;
     }
     if (!userlastName) {
-      alert('Please fill user last name');
+      alert('Please Enter user last name');
       return;
     }
     if (!userDOB) {
-      alert('Please fill date of birth');
+      alert('Please Enter  date of birth day');
+      return;
+    }
+    if (!userDOBMonth) {
+      alert('Please Enter date of birth month');
+      return;
+    }
+    if (!userDOBYear) {
+      alert('Please Enter date of birth year');
       return;
     }
     if (!userSS) {
-      alert('Please fill student ');
+      alert('Please Select Repeater or Fresher');
       return;
     }
     if (!userBID) {
-      alert('Please fill user BID');
+      alert('Please Select Board of Education');
       return;
     }
     if (!userName) {
@@ -106,23 +117,25 @@ const RegisterScreen = props => {
     }
 
     if (!usergender) {
-      alert('Please fill gender');
+      alert('Please Select gender');
       return;
     }
 
     if (!userPassword) {
-      alert('Please fill Password');
+      alert('Please Enter Password');
       return;
     }
     // Show Loader
     // setLoading(true);
+    let dateOfBirth = userDOB + "/" +userDOBMonth + "/" +userDOBYear;
+    console.log("dateOfBirth",dateOfBirth)
     const dataToSend = {
       firstName: userfirstName,
       lastName: userlastName,
       userName: userName,
       password: userPassword,
       gender: usergender,
-      dateOfBirth: userDOB,
+      dateOfBirth: dateOfBirth,
       studentStatus: userSS,
       boardId: userBID,
     };
@@ -131,37 +144,6 @@ const RegisterScreen = props => {
   await AUTH.REGISTER_SUCCESS && props.navigation.navigate('LoginScreen')
  
   };
-
-
-  const renderItem = (data) => {
-    return (
-      <TouchableOpacity
-        //  onPress={() => {}
-        style={[
-          baseStyles.itemContainer,
-          //baseStyles.pV2_5x,
-          { justifyContent: "space-between", flexDirection: "row",backgroundColor:'#fff' },
-        ]}
-        activeOpacity={0.8}
-      >
-        <View style={[baseStyles.mH2_5x,{flex:.9}]}>
-          <Text
-            style={[
-              { color: THEME_COLORS.primary, fontFamily: FONTS.semiBold },
-            ]}
-          >
-          {data.item.title}
-          </Text>
-        </View>
-        
-      </TouchableOpacity>
-    );
-  };
-
-
-
-
-
 
 
 
@@ -173,6 +155,8 @@ const RegisterScreen = props => {
           onBackPress={() => props.navigation.goBack()}
           backgroundLight
           showBack
+          addPerson={null}
+          addUser
         />
       
    <ScrollView
@@ -193,12 +177,15 @@ const RegisterScreen = props => {
 
         <KeyboardAvoidingView enabled>
 
-        <View style={{flexDirection:'row',marginTop:20,flex:1,    backgroundColor: THEME_COLORS.white,}}>  
-          <View style={{flex:.5,marginHorizontal:15,marginBottom:5}}>
-            <Text style={{color:'#000'}}>First Name</Text>
+        <View style={{flexDirection:'row',marginTop:30,flex:1,
+            backgroundColor: THEME_COLORS.white,}}>  
+          <View style={{flex:.5,marginHorizontal:15,
+            //marginBottom:5
+           }}>
+            <Text style={styles.textSytle}>First Name</Text>
             </View>
-        <View style={{flex:.5,marginHorizontal:15,marginBottom:5}}>
-           <Text style={{color:'#000'}}>Last name</Text>
+        <View style={{flex:.5,marginHorizontal:15}}>
+           <Text style={styles.textSytle}>Last Name</Text>
            </View>
           </View>
           <View style={{flexDirection:'row'}}>  
@@ -242,7 +229,7 @@ const RegisterScreen = props => {
 
           <View style={{flexDirection:'row',marginTop:20}}>  
           <View style={{flex:.5,marginHorizontal:15,marginBottom:5}}>
-            <Text style={{color:'#000'}}>Email</Text>
+            <Text style={styles.textSytle}>Email</Text>
             </View>
           </View>
 
@@ -253,7 +240,7 @@ const RegisterScreen = props => {
               style={styles.inputStyle}
               onChangeText={UserName => setUserName(UserName)}
               underlineColorAndroid="#f000"
-              placeholder="Enter Email or phone number"
+              placeholder="Enter Email"
               ref={userNameInputRef}
               placeholderTextColor="#8b9cb5"
               autoCapitalize="sentences"
@@ -268,7 +255,7 @@ const RegisterScreen = props => {
 
           <View style={{flexDirection:'row',marginTop:20}}>  
           <View style={{flex:.5,marginHorizontal:15,marginBottom:5}}>
-            <Text style={{color:'#000'}}>Password</Text>
+            <Text style={styles.textSytle}>Password</Text>
             </View>
           </View>
 
@@ -295,7 +282,7 @@ const RegisterScreen = props => {
 
           <View style={[baseStyles.mT2_5x,{flexDirection:'row',}]}>  
           <View style={{flex:.5,marginHorizontal:15,marginBottom:5}}>
-            <Text style={{color:'#000'}}>Date of Birth</Text>
+            <Text style={styles.textSytle}>Date of Birth</Text>
             </View>
           </View>
 
@@ -321,26 +308,30 @@ const RegisterScreen = props => {
          <View style={styles.SectionStyle}>
          <SelectDropdown  
          buttonStyle={[{ width: '100%',
-         height: 40,
+         height: 56,
          backgroundColor: '#FFF',
          borderWidth: 1,
          borderRadius: 10,
          borderColor: '#dadae8',}]}
          rowTextStyle={{textAlign:'left',fontSize:12}}
-         buttonTextStyle={{textAlign:'left',fontSize:12}}
+         buttonTextStyle={{textAlign:'left',
+         fontSize:16,color:'#C2C2C2',lineHeight:24,letterSpacing:0.5}}
          data={['1','2','3','4','5','6','7','8','9','10']}
          defaultButtonText={'Day'}
          renderDropdownIcon={isOpened => {
-           return <Ionicons name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18} />;
+           return <Ionicons name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#C2C2C2'} size={18} />;
          }}
          rowStyle={{padding:12}}
          dropdownStyle=
         {{backgroundColor:'#fff'}}
-         onSelect={(selectedItem, index) => {
-           console.log(selectedItem, index)
+         onSelect={(selectedItem1, index,userDOB) => {
+             setDOB(selectedItem1);
+       
+            //  console.log(selectedItem, index)
          }}
-         buttonTextAfterSelection={(selectedItem, index) => {
-           return selectedItem
+         
+         buttonTextAfterSelection={(selectedItem1, index) => {
+           return selectedItem1
          }}
          rowTextForSelection={(item, index) => {
            return item
@@ -350,22 +341,24 @@ const RegisterScreen = props => {
        <View style={styles.SectionStyle}>
          <SelectDropdown
          buttonStyle={[{ width: '100%',
-         height: 40,
+         height: 56,
          backgroundColor: '#FFF',
          borderWidth: 1,
          borderRadius: 10,
          borderColor: '#dadae8',}]}
          rowTextStyle={{textAlign:'left',fontSize:12}}
-         buttonTextStyle={{textAlign:'left',fontSize:12}}
+         buttonTextStyle={{textAlign:'left',
+         fontSize:16,color:'#C2C2C2',lineHeight:24,letterSpacing:0.5}}
          data={['January','Feb','March','April','March','May','June','July','August','September','October','November','December']}
          defaultButtonText={'Month'}
          renderDropdownIcon={isOpened => {
-           return <Ionicons name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18} />;
+           return <Ionicons name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#C2C2C2'} size={18} />;
          }}
          rowStyle={{padding:12}}
          dropdownStyle=
         {{backgroundColor:'#fff'}}
          onSelect={(selectedItem, index) => {
+            setDOBMonth(selectedItem)
            console.log(selectedItem, index)
          }}
          buttonTextAfterSelection={(selectedItem, index) => {
@@ -379,22 +372,25 @@ const RegisterScreen = props => {
        <View style={styles.SectionStyle}>
          <SelectDropdown
          buttonStyle={[{ width: '100%',
-         height: 40,
+         height: 56,
          backgroundColor: '#FFF',
          borderWidth: 1,
          borderRadius: 10,
          borderColor: '#dadae8',}]}
-         rowTextStyle={{textAlign:'left',fontSize:12}}
-         buttonTextStyle={{textAlign:'left',fontSize:12}}
+         rowTextStyle={{textAlign:'left',fontSize:16/ FONT_SCALE ,fontFamily:FONTS.regular,letterSpacing:0.5}}
+         buttonTextStyle={{textAlign:'left',
+         fontSize:16,color:'#C2C2C2',lineHeight:24,letterSpacing:0.5}}
          data={['1994','1995','1996','1997','1997','1998','1999','2000','2001','2002']}
          defaultButtonText={'Year'}
          renderDropdownIcon={isOpened => {
-           return <Ionicons name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18} />;
+           return <Ionicons name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#C2C2C2'} size={18} />;
          }}
          rowStyle={{padding:12,}}
+         dropdownOverlayColor='transparent'
          dropdownStyle=
         {{backgroundColor:'#fff'}}
          onSelect={(selectedItem, index) => {
+           setDOBYear(selectedItem)
            console.log(selectedItem, index)
          }}
          buttonTextAfterSelection={(selectedItem, index) => {
@@ -407,20 +403,21 @@ const RegisterScreen = props => {
        </View>
          </View> 
          
-         <View style={[styles.SectionStyle,baseStyles.mT2_5x,{justifyContent:'space-between',}]}>
+         <View style={[baseStyles.mT3_5x,baseStyles.mB2_5x,{justifyContent:'space-between',marginHorizontal:20}]}>
             <RadioForm
             formHorizontal={true}
             radio_props={data}
             // initial={0}
-            labelStyle={{fontSize:12, color:THEME_COLORS.black,left:-5}}
+            labelStyle={{fontSize:16/FONT_SCALE, fontFamily:FONTS.regular,letterSpacing:0.5,marginRight:60,
+            color:THEME_COLORS.black,left:-5,}}
             labelHorizontal={true}
             buttonColor={'#203870'}
             buttonInnerColor={'#203870'}
             animation={true}
             onPress={(Usergender) => setUsergender(Usergender)}
-            buttonSize={10}
+            buttonSize={13 / FONT_SCALE}
       
-            buttonOuterSize={20}
+            buttonOuterSize={25/ FONT_SCALE}
             buttonStyle={{backgroundColor:'grey'}}
             buttonWrapStyle={{marginLeft: 10}}
           />
@@ -428,32 +425,35 @@ const RegisterScreen = props => {
 
          <View style={[baseStyles.flex1x,baseStyles.flexRow]}>  
           <View style={{flex:.5,marginHorizontal:15,marginBottom:5}}>
-            <Text style={{color:COLORS.lightBlack}}>Academic Status</Text>
+            <Text style={styles.textSytle}>Academic Status</Text>
             </View>
           </View>
 
           <View style={styles.SectionStyle}>
           <SelectDropdown
           buttonStyle={[{ width: '100%',
-          height: 40,
+          height: 56,
           backgroundColor: '#FFF',
           borderWidth: 1,
           borderRadius: 10,
           borderColor: '#dadae8',}]}
           
-          rowTextStyle={{textAlign:'left',fontSize:12}}
-          buttonTextStyle={{textAlign:'left',fontSize:12}}
+          rowTextStyle={{textAlign:'left',fontSize:16/ FONT_SCALE ,fontFamily:FONTS.regular,letterSpacing:0.5}}
+
+          buttonTextStyle={{textAlign:'left',
+          fontSize:16,color:'#C2C2C2',lineHeight:24,letterSpacing:0.5,zIndex:99}}
           data={Academic_status.map((data)=>{
             return(
             data.title)
           })}
           defaultButtonText={'Select'}
           renderDropdownIcon={isOpened => {
-            return <Ionicons name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18} />;
+            return <Ionicons name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#C2C2C2'} size={18} />;
           }}
-          rowStyle={{padding:12,width:'95%'}}
+          rowStyle={{padding:12}}
+          dropdownOverlayColor='transparent'
           dropdownStyle=
-         {{backgroundColor:'#fff',width:'95%'}}
+         {{backgroundColor:'#fff',flex:1,borderRadius:12,position:'absolute',marginTop:-30}}
           onSelect={(selectedItem, index,) => {
             setvalueofAcademicstatus(selectedItem)
              console.log("onSelect",selectedItem, index)
@@ -469,37 +469,46 @@ const RegisterScreen = props => {
 
           </View> 
 
+
+
+          
+
           {/* ////////////////MDCAT Select///////////// */}
 
 
-          {valueofAcademicstatus == 'MDCAT' ?
+          {valueofAcademicstatus == 'MDCAT' &&
              <View>
             <View style={[baseStyles.mT2_5x,baseStyles.flex1x,baseStyles.flexRow]}>  
              <View style={{flex:.5,marginHorizontal:15,marginBottom:5}}>
-               <Text style={{color:COLORS.lightBlack}}>Board of Education</Text>
+               <Text style={styles.textSytle}>Board of Education</Text>
                </View>
              </View>
    
              <View style={styles.SectionStyle}>
              <SelectDropdown
              buttonStyle={[{ width: '100%',
-             height: 40,
+             height: 56,
+             overflow:'hidden',
              backgroundColor: '#FFF',
              borderWidth: 1,
              borderRadius: 10,
              borderColor: '#dadae8',}]}
-             rowTextStyle={{textAlign:'left',fontSize:12}}
-             buttonTextStyle={{textAlign:'left',fontSize:12}}
+             rowTextStyle={{textAlign:'left',fontSize:16/ FONT_SCALE ,fontFamily:FONTS.regular,letterSpacing:0.5}}
+             buttonTextStyle={{textAlign:'left',
+             fontSize:16,color:'#C2C2C2',lineHeight:24,letterSpacing:0.5,zIndex:99}}
              data={['Lahore','Islamabad','Kasur']}
              defaultButtonText={'Select'}
              renderDropdownIcon={isOpened => {
-               return <Ionicons name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18} />;
+               return <Ionicons name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#C2C2C2'} size={18} />;
              }}
-             rowStyle={{padding:12,width:'95%'}}
+             rowStyle={{width:'100%'}}
+
+             dropdownOverlayColor='transparent'
              dropdownStyle=
-            {{backgroundColor:'#fff',width:'95%'}}
+            {{backgroundColor:'#fff',borderRadius:12,flex:1,marginTop:-25,position:'absolute'}}
              onSelect={(selectedItem, index) => {
-               console.log(selectedItem, index)
+               setBID(selectedItem)
+               //console.log(selectedItem, index)
              }}
              buttonTextAfterSelection={(selectedItem, index) => {
                return selectedItem
@@ -509,48 +518,53 @@ const RegisterScreen = props => {
              }}
            />
           </View> 
-          <View style={[styles.SectionStyle,baseStyles.mT2_5x]}>
+          <View style={[baseStyles.mT2_5x,{justifyContent:'space-between',marginHorizontal:20}]}>
            <RadioForm
             formHorizontal={true}
             radio_props={studentstatus}
-            // initial={data}
-            labelStyle={{fontSize:12, color:THEME_COLORS.black,left:-5}}
+            labelStyle={{fontSize:16/FONT_SCALE, fontFamily:FONTS.regular,letterSpacing:0.5,marginRight:35,
+            color:THEME_COLORS.black,left:-5,}}
             labelHorizontal={true}
             buttonColor={THEME_COLORS.primary}
-            buttonInnerColor={THEME_COLORS.primary}
+            buttonInnerColor={'#117A9B'}
             animation={true}
-            buttonSize={10}
-            buttonOuterSize={20}
-            buttonStyle={{margin:40}}
+            buttonSize={13 / FONT_SCALE}
+            buttonOuterSize={25/ FONT_SCALE}
+           // buttonStyle={styles.SectionStyle}
             
             onPress={(userSS) => setSS(userSS)}
           /> 
           </View>
              </View>
-         : <View>
+         }
+
+          {valueofAcademicstatus == 'MBBS' &&
+        <View>
         <View style={[baseStyles.mT2_5x,baseStyles.flex1x,baseStyles.flexRow]}>  
          <View style={{flex:.5,marginHorizontal:15,marginBottom:5}}>
-           <Text style={{color:COLORS.lightBlack}}>College / University</Text>
+           <Text style={styles.textSytle}>College / University</Text>
            </View>
          </View>
          <View style={styles.SectionStyle}>
          <SelectDropdown
          buttonStyle={[{ width: '100%',
-         height: 40,
+         height: 56,
          backgroundColor: '#FFF',
          borderWidth: 1,
          borderRadius: 10,
          borderColor: '#dadae8',}]}
-         rowTextStyle={{textAlign:'left',fontSize:12}}
-         buttonTextStyle={{textAlign:'left',fontSize:12}}
+         rowTextStyle={{textAlign:'left',fontSize:16/ FONT_SCALE ,fontFamily:FONTS.regular,letterSpacing:0.5}}
+         buttonTextStyle={{textAlign:'left',
+         fontSize:16,color:'#C2C2C2',lineHeight:24,letterSpacing:0.5,zIndex:99}}
          data={['Punjab University','Lahore College for women univerity','NUMS univeristy','NUML university','Iqra univeristy']}
          defaultButtonText={'Select'}
          renderDropdownIcon={isOpened => {
-           return <Ionicons name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18} />;
+           return <Ionicons name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#C2C2C2'} size={18} />;
          }}
          rowStyle={{padding:12,width:'95%'}}
+         dropdownOverlayColor='transparent'
          dropdownStyle=
-        {{backgroundColor:'#fff',width:'95%'}}
+        {{backgroundColor:'#fff',flex:1,borderRadius:12,position:'absolute'}}
          onSelect={(selectedItem, index) => {
            console.log(selectedItem, index)
          }}
@@ -567,28 +581,30 @@ const RegisterScreen = props => {
 
          <View style={[baseStyles.mT2_5x,baseStyles.flex1x,baseStyles.flexRow]}>  
          <View style={{flex:.5,marginHorizontal:15,marginBottom:5}}>
-           <Text style={{color:COLORS.lightBlack}}>Year of Study</Text>
+           <Text style={styles.textSytle}>Year of Study</Text>
            </View>
          </View>
 
          <View style={styles.SectionStyle}>
          <SelectDropdown
          buttonStyle={[{ width: '100%',
-         height: 40,
+         height: 56,
          backgroundColor: '#FFF',
          borderWidth: 1,
          borderRadius: 10,
          borderColor: '#dadae8',}]}
-         rowTextStyle={{textAlign:'left',fontSize:12}}
-         buttonTextStyle={{textAlign:'left',fontSize:12}}
+         rowTextStyle={{textAlign:'left',fontSize:16/ FONT_SCALE ,fontFamily:FONTS.regular,letterSpacing:0.5}}
+         buttonTextStyle={{textAlign:'left',
+         fontSize:16,color:'#C2C2C2',lineHeight:24,letterSpacing:0.5,zIndex:99}}
          data={['1999','2000','2001','2002','2003','2004','2005','2006','2007']}
          defaultButtonText={'Select'}
          renderDropdownIcon={isOpened => {
-           return <Ionicons name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18} />;
+           return <Ionicons name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#C2C2C2'} size={18} />;
          }}
-         rowStyle={{padding:12,width:'95%'}}
+         rowStyle={{padding:12}}
+         dropdownOverlayColor='transparent'
          dropdownStyle=
-        {{backgroundColor:'#fff',width:'95%'}}
+        {{backgroundColor:'#fff',flex:1,borderRadius:12,position:'absolute',}}
          onSelect={(selectedItem, index) => {
            console.log(selectedItem, index)
          }}
@@ -632,14 +648,16 @@ const RegisterScreen = props => {
             style={styles.buttonStyle}
             activeOpacity={0.5}
             onPress={handleSubmitButton}>
-            <Text style={styles.buttonTextStyle}>Sign Up</Text>
+            <Text style={styles.buttonTextStyle}>Sign up</Text>
           </TouchableOpacity>
 
         </KeyboardAvoidingView>
         <View style={{flexDirection:'row',alignSelf:'center',marginBottom:30}}>
-        <Text style={{textAlign:'center',color:'#000'}}>I am already a member.</Text>
+        <Text style={{textAlign:'center',color:'#000',fontFamily:FONTS.regular,
+          lineHeight:16,fontSize:12/FONT_SCALE,letterSpacing:0.4}}>I am already a member.</Text>
         <TouchableOpacity onPress={()=>props.navigation.navigate('LoginScreen')}>
-          <Text style={{color:'#6750A4'}}>{" "}Sign In</Text>
+          <Text style={{color:'#6750A4',fontFamily:FONTS.regular,
+          lineHeight:16,fontSize:12/FONT_SCALE,letterSpacing:0.4}}>{" "}Sign In</Text>
         </TouchableOpacity>
         </View>
       </ScrollView> 
@@ -653,8 +671,9 @@ export default RegisterScreen;
 
 const styles = StyleSheet.create({
   SectionStyle: {
-    height: 40,
+    height: 56,
     flex:1,
+    display:'flex',
     marginHorizontal:10,
     justifyContent:'space-between',
     backgroundColor: THEME_COLORS.white,
@@ -662,7 +681,7 @@ const styles = StyleSheet.create({
   },
   buttonStyle: {
     backgroundColor: THEME_COLORS.white,
-    borderWidth: 1,
+    borderWidth: 2,
     color: '#FFFFFF',
     borderColor: '#117A9B',
     alignItems: 'center',
@@ -670,19 +689,27 @@ const styles = StyleSheet.create({
     marginTop: 20,
     alignSelf:'center',
     marginBottom: 20,
-    width:'50%'
+    height:50,
+    width:182,
+    display:'flex'
   },
   buttonTextStyle: {
     color: '#117A9B',
     paddingVertical: 10,
-    fontSize: 16,
+    lineHeight:20,
+    fontSize: 16 / FONT_SCALE,
+    fontFamily:FONTS.bold,
+    letterSpacing:0.1,
+    
   },
   inputStyle: {
     flex: 1,
     color: 'black',
     paddingLeft: 15,
     paddingRight: 15,
+    display:'flex',
     borderWidth: 1,
+    height:56,
     borderRadius: 10,
     borderColor: '#dadae8',
   },
@@ -697,4 +724,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     padding: 30,
   },
+  textSytle:{
+    color:'#343434',
+    fontFamily:FONTS.regular,
+    letterSpacing:0.5,
+    lineHeight:24,
+    fontSize:16
+  }
 });

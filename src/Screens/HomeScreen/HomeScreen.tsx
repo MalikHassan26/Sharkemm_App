@@ -29,12 +29,12 @@ import {
   baseStyles,
   CARDOCEAN,
   COMEPLETE_CIRCLE,
-  Component_Icon,
+  COMPONENT_ICON,
   FISH,
   FONT_SCALE,
   FONTS,
   GIF,
-  Group_Icon,
+  GROUP_ICON,
   HALF,
   HALF_MULTICOLOR,
   Line,
@@ -46,7 +46,6 @@ import {
   SUBJECT,
   THEME_COLORS,
   THEME_TEXT_COLORS,
-  TRANSFER_FILE,
   VALET,
   VIDEO_ICON,
 } from '../../Shell/Theme/css/base';
@@ -157,17 +156,18 @@ const HomeScreen = ({props,navigation}) => {
           backgroundColor={THEME_COLORS.primary}
         />
       <View
-        style={{marginTop:20,paddingTop: 20,maxHeight:320,
+        style={{maxHeight:348,
            backgroundColor: THEME_COLORS.primary,borderBottomStartRadius:12,elevation:3,
         borderBottomEndRadius:12}}>
         <View
-          style={{
+          style={[baseStyles.mT6x,{
+            
             flexDirection: 'row',
             alignItems: 'center',
-          }}>
+          }]}>
           <Drawernavigation modalVisible={modalVisible} setModalVisible={setModalVisible} navigation={navigation.navigate}/>
          <View style={{flexDirection:'row', paddingHorizontal: 20,alignItems:'center',height:40,
-          flex: 1, backgroundColor:'#C2C2C233',borderRadius:50,marginRight: 20, 
+          flex: 1, backgroundColor:'#C2C2C233',borderRadius:50,marginRight: 20,
           borderWidth:1,borderColor:'#C2C2C233'}}>
          <Ionicons name={"search"} size={22} color={THEME_COLORS.white} />
           <TextInput
@@ -189,15 +189,15 @@ const HomeScreen = ({props,navigation}) => {
                     fontWeight:'700',
                     fontFamily:FONTS.bold,
                     lineHeight:30,
-                    top: 20,
+                    top: 33,
                     left: 60,
-                    letterSpacing:2
+                    letterSpacing:3
                   }}>
                   {" "}Hi, Jolliet!
                 </Text>
-                <Image source={FISH} style={{top:-10,width:'100%', height: 50,right:2}}></Image>
+                <Image source={FISH} style={{width:'100%', height: 50,right:2}}></Image>
                 <FastImage
-                 style={{ width: '100%', height: 50,top:-60,opacity:0.4}}
+                 style={{ width: '100%', height: 50,top:-50,opacity:0.4}}
                  source={GIF}
                  resizeMode={'contain'}
                    />
@@ -230,16 +230,20 @@ const HomeScreen = ({props,navigation}) => {
                           color: '#fff',
                           fontSize: 16/FONT_SCALE,
                           textAlign: 'center',
+                          fontFamily:FONTS.regular,
+                          lineHeight:19
                         }}>
                         30
                       </Text>
                       <Text
                         style={{
                           color: '#fff',
-                          fontSize: 13/FONT_SCALE,
+                          fontSize: 16/FONT_SCALE,
                           top:5,
                           fontWeight: '400',
-                          letterSpacing: 1,
+                          // letterSpacing: 1,
+                          fontFamily:FONTS.regular,
+                          lineHeight:19,
                         }}>
                         Card Studied
                       </Text>
@@ -253,6 +257,8 @@ const HomeScreen = ({props,navigation}) => {
                     resizeMode="contain"
                     style={{
                       // flex: 0.5,
+                      position:'absolute',
+                      left:10,
                       // justifyContent: 'center',
                        marginHorizontal: 15,
                       //  height: 80,
@@ -263,25 +269,29 @@ const HomeScreen = ({props,navigation}) => {
                       <Text
                         style={{
                           color: '#fff',
-                          fontSize: 14/FONT_SCALE,
+                          fontSize: 16/FONT_SCALE,
                           textAlign: 'center',
+                          fontFamily:FONTS.regular,
+                          lineHeight:19
                         }}>
                         70
                       </Text>
                       <Text
                         style={{
                           color: '#fff',
-                          fontSize: 13/FONT_SCALE,
+                          fontSize: 16/FONT_SCALE,
                           top:5,
-                          fontWeight: '400',
-                          letterSpacing: 1,
+                          fontWeight: '400', 
+                          // letterSpacing: 1,
+                          fontFamily:FONTS.regular,
+                          lineHeight:19,
                         }}>
                        {" "}Hours Spend
                       </Text>
                     </View>
                   </ImageBackground>
                 </View>
-                <Image source={Line} style={{height:60,width:1,position:'absolute',left:225,top:5}}/>
+                <Image source={Line} style={{height:60,width:1,position:'absolute',left:248,top:5}}/>
               </View>
              </View>
            
@@ -291,45 +301,51 @@ const HomeScreen = ({props,navigation}) => {
                 resizeMode="contain"
                 style={{
                  // flex: 1,
-                  justifyContent: 'flex-start',
-                  height: 105,
-                  top:30,
-                  width:100
+                  justifyContent: 'center',
+                  height: 106,
+                  top:40,
+                  width:106,
+                  position:'absolute'
                 }}>
                 <View
                   style={{
-                    paddingTop: 40,
+                    //paddingTop: 40,
                     alignItems: 'center',
                     alignContent: 'center',
                   }}>
                   <Text
                     style={{
                       color: '#fff',
-                      fontSize: 18,
+                      fontSize: 20,
+                      fontFamily:FONTS.regular,
                       textAlign: 'center',
-                      marginTop: 5,
+                      //marginTop: 5,
                       fontWeight:'400',
-                      lineHeight:19.49
+                     // lineHeight:19.49
                     }}>
-                    20%
+                    20<Text style={{fontSize:14}}>%</Text>
                   </Text>
                 </View>
+              
               </ImageBackground>
               <Text
                 style={{
                   color: '#fff',
-                          fontSize: 12,
-                         // top:5,
+                
+                  fontSize: 16/FONT_SCALE,
+                        position:'absolute',
                           fontWeight: '400',
-                          letterSpacing:1,
-                          top:32,
+                          //letterSpacing:1,
+                          top:160,
                           lineHeight:15,
+                          fontFamily:FONTS.regular
                           
                 }}>
                 {'      '}
                 Mastery
               </Text>
             </View>
+           
         
      
         </View>
@@ -342,14 +358,17 @@ const HomeScreen = ({props,navigation}) => {
                     letterSpacing: 0.3,
                     textAlign: 'center',
                     marginHorizontal:10,
-                    paddingVertical:0
+                    fontFamily:FONTS.regular,
+                    lineHeight:19
+
 
 
                   }}>
                   {' '}
                   Goals
                 </Text>
-              <Progress.Bar unfilledColor='#253457' borderRadius={50} borderWidth={0}
+              <Progress.Bar unfilledColor='#253457' borderRadius={50} borderWidth={0} 
+              indeterminate={false} 
               progress={0.7} height={7} width={320} color={'#117A9B'} borderColor='transparent'
               style={{alignSelf:'flex-start',flex:0.94,top:10}}/>
              
@@ -386,17 +405,17 @@ const HomeScreen = ({props,navigation}) => {
       </View>:
       <View style={[baseStyles.mH2_5x,{flexDirection:'row',justifyContent:'space-between'}]}>
         
-         <TouchableOpacity style={[styles?.cardsStyle]} activeOpacity={0.8}>
+         <TouchableOpacity style={[styles?.cardsStyle]} activeOpacity={0.8} hasTVPreferredFocus={true}>
          <Image source={VIDEO_ICON} style={{height:25,width:25}}/>
        </TouchableOpacity>
        <TouchableOpacity style={styles?.cardsStyle} activeOpacity={0.8}>
         <Image source={PRIMERY_CARD} style={{height:25,width:25}}/>
       </TouchableOpacity>
       <TouchableOpacity style={styles?.cardsStyle} activeOpacity={0.8}>
-        <Image source={Component_Icon} style={{height:25,width:25}}/>
+        <Image source={COMPONENT_ICON} style={{height:25,width:25}}/>
       </TouchableOpacity>
       <TouchableOpacity style={styles?.cardsStyle} activeOpacity={0.8}>
-        <Image source={Group_Icon} style={{height:25,width:25}}/>
+        <Image source={GROUP_ICON} style={{height:25,width:25}}/>
       </TouchableOpacity>
        </View>
 
@@ -408,8 +427,8 @@ const HomeScreen = ({props,navigation}) => {
          <View style={{marginHorizontal:20,justifyContent:'center',}}  >
         <TouchableOpacity  onPress={()=>isSetAcitve(true)} style={baseStyles.flexRow}
         >
-        <Text style={{color:isActive?THEME_COLORS.primary:THEME_COLORS.lightBlue}}>Subjects{" "}</Text>
-         <Image source={isActive?ACTIVE_SUBJECT:SUBJECT}  style={{height:20,width:20}}/> 
+        <Text style={{color:isActive?THEME_COLORS.primary:THEME_COLORS.lightBlue,fontFamily:FONTS.bold,lineHeight:20,fontSize:16}}>Subjects{" "}</Text>
+         <Image source={isActive?ACTIVE_SUBJECT:SUBJECT}  style={{height:25,width:25}}/> 
         </TouchableOpacity>
         {isActive == true &&
       
@@ -418,9 +437,9 @@ const HomeScreen = ({props,navigation}) => {
       </View>
       <View style={{marginHorizontal:20,justifyContent:'center'}} >
         <TouchableOpacity onPress={()=>isSetAcitve(false)} style={{flexDirection:'row'}}>
-          <Text  style={{color:isActive?THEME_COLORS.lightBlue: THEME_COLORS.primary}}>Vault{" "}
+          <Text  style={{color:isActive?THEME_COLORS.lightBlue: THEME_COLORS.primary,fontFamily:FONTS.bold,lineHeight:20,fontSize:16}}>Vault{" "}
             </Text>
-             <Image source={isActive?VALET:ACTIVE_VALET}  style={{height:20,width:20}}/>
+             <Image source={isActive?VALET:ACTIVE_VALET}  style={{height:25,width:25}}/>
         </TouchableOpacity>
         {isActive == false &&
       

@@ -9,10 +9,12 @@ export default StyleSheet.create({
   },
   headerText: {
     fontFamily: FONTS.bold,
-    fontSize: 20/ FONT_SCALE,
+    fontSize: 24/ FONT_SCALE,
     color: THEME_COLORS.white,
     lineHeight:24,
+    letterSpacing:0.5
     // fontWeight: '900',
+    
   },
   innerContainer: {
     flex: 1,

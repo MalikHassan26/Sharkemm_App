@@ -61,7 +61,7 @@ const LoginScreen = ({navigation,props}) => {
        <AppHeader
           text={'Log In'}
           onBackPress={() => navigation.goBack()}
-
+          addUser={null}
           backgroundLight
           showBack
         />
@@ -75,8 +75,7 @@ const LoginScreen = ({navigation,props}) => {
         }}>
         <View>
           <KeyboardAvoidingView enabled>
-            <Text style={[baseStyles.mT2_5x,baseStyles.mH2_5x,{color:'#343434',
-            lineHeight:24,height:24,letterSpacing:0.5,fontFamily:FONTS.regular}]}>{" "}Email</Text>
+            <Text style={[baseStyles.mT2_5x,styles.textSytle]}>{" "}Email</Text>
             <View style={styles.SectionStyle}>
               <TextInput
                 style={styles.inputStyle}
@@ -93,8 +92,7 @@ const LoginScreen = ({navigation,props}) => {
                 blurOnSubmit={false}
               />
             </View>
-            <Text style={[baseStyles.mT2_5x,baseStyles.mH2_5x,{color:'#343434',
-            lineHeight:24,height:24,letterSpacing:0.5,fontFamily:FONTS.regular}]}>{" "}Password</Text>
+            <Text style={[baseStyles.mT2_5x,styles.textSytle]}>{" "}Password</Text>
             <View style={styles.SectionStyle}>
               <TextInput
                 style={styles.inputStyle}
@@ -160,25 +158,26 @@ const styles = StyleSheet.create({
   },
   buttonStyle: {
     backgroundColor: THEME_COLORS.white,
-    borderWidth: 1,
+    borderWidth: 2,
     color: '#FFFFFF',
     borderColor: '#117A9B',
     alignItems: 'center',
     borderRadius: 50,
-    marginTop: 10,
-    fontFamily:FONTS.regular,
+    marginTop: 20,
     alignSelf:'center',
     marginBottom: 20,
-    width:'50%',
     height:50,
+    width:182,
+    display:'flex'
   },
   buttonTextStyle: {
     color: '#117A9B',
     paddingVertical: 10,
-    fontSize: 16/ FONT_SCALE,
+    lineHeight:20,
+    fontSize: 16 / FONT_SCALE,
     fontFamily:FONTS.bold,
-    lineHeight:30,
-    letterSpacing:0.1
+    letterSpacing:0.1,
+    
   },
   inputStyle: {
     width: '100%',
@@ -206,6 +205,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 14/FONT_SCALE,
   },
+  textSytle:{
+    color:'#343434',
+    fontFamily:FONTS.regular,
+    letterSpacing:0.5,
+    lineHeight:24,
+    fontSize:16,
+    marginHorizontal:15
+  }
 });
 
 

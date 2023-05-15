@@ -30,7 +30,7 @@ export const BOTTOM_TABS = {
 export const INITIAL_SCREEN = {
   HEADING01: 'Consolidate',
   HEADING02: 'Your Studies',
-  SUB_HEADING_START:'Find Flashcards for millions of subjects, or',
+  SUB_HEADING_START:'Find Flashcards for millions of subjects, or create your own and sync them with the Sharkemm app.',
   SUB_HEADING_CENTER:'create your own and sync them with the',
   SUB_HEADING_END:'Sharkemm app.',
   

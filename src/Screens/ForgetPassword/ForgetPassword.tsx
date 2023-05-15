@@ -15,7 +15,7 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Loader from '../../Components/Atoms/Loader';
-import {baseStyles, THEME_COLORS} from '../../Shell/Theme/css/base';
+import {baseStyles, FONT_SCALE, FONTS, THEME_COLORS} from '../../Shell/Theme/css/base';
 import axios from 'axios';
 import { login } from '../../Utils/Store/Actions/auth';
 import { useDispatch } from 'react-redux';
@@ -40,6 +40,8 @@ const ForgetPassword = ({navigation,props}) => {
           backgroundLight
           showBack
           addPerson={false}
+          addUser={false}
+          
         />
       <Loader loading={loading} />
 
@@ -53,10 +55,13 @@ const ForgetPassword = ({navigation,props}) => {
         <View>
           <KeyboardAvoidingView enabled>
             <Image style={styles.imageView} source={require('../../../assets/forgot-password.png')}/>
-          <Text style={[baseStyles.mT2_5x,baseStyles.mH5x,{color:'#000',textAlign:'center',marginBottom:25}]}>
+          <Text style={[baseStyles.mT2_5x,{color:'#343434',fontSize:18,width:'80%',
+          letterSpacing:0.5,lineHeight:24,alignSelf:'center',alignContent:'center',
+          fontFamily:FONTS.regular,
+          textAlign:'center',marginBottom:25}]}>
           Please enter your email address  to receive a verification code
           </Text>
-            <Text style={[baseStyles.mT2_5x,baseStyles.mH5x,{color:'#000'}]}>Email</Text>
+            <Text style={[baseStyles.mT2_5x,styles.textSytle]}>Email</Text>
             <View style={styles.SectionStyle}>
               <TextInput
                 style={styles.inputStyle}
@@ -98,33 +103,30 @@ const styles = StyleSheet.create({
   },
   SectionStyle: {
     flexDirection: 'row',
-    height: 40,
+    height: 56,
    // marginTop: 20,
-    marginLeft: 35,
-    marginRight: 35,
-    margin: 10,
+    // marginLeft: 35,
+    // marginRight: 35,
+    marginHorizontal: 20,
   },
   imageView:{
     alignSelf:'center',
     marginVertical:40
 },
-  buttonStyle: {
-    backgroundColor: THEME_COLORS.white,
-    borderWidth: 1,
-    color: '#FFFFFF',
-    borderColor: '#117A9B',
-    alignItems: 'center',
-    borderRadius: 50,
-    marginTop: 20,
-    alignSelf:'center',
-    marginBottom: 20,
-    width:'50%'
-  },
-  buttonTextStyle: {
-    color: '#117A9B',
-    paddingVertical: 10,
-    fontSize: 16,
-  },
+buttonStyle: {
+  backgroundColor: THEME_COLORS.white,
+  borderWidth: 2,
+  color: '#FFFFFF',
+  borderColor: '#117A9B',
+  alignItems: 'center',
+  borderRadius: 50,
+  marginTop: 20,
+  alignSelf:'center',
+  marginBottom: 20,
+  height:50,
+  width:182,
+  display:'flex'
+},
   inputStyle: {
     // flex: 1,
     width: '100%',
@@ -147,5 +149,23 @@ const styles = StyleSheet.create({
     color: 'red',
     textAlign: 'center',
     fontSize: 14,
+  },
+  textSytle:{
+    color:'#343434',
+    fontFamily:FONTS.regular,
+    letterSpacing:0.5,
+    lineHeight:24,
+    fontSize:16,
+    marginHorizontal:25
+   
+  },
+  buttonTextStyle: {
+    color: '#117A9B',
+    paddingVertical: 10,
+    lineHeight:20,
+    fontSize: 16 / FONT_SCALE,
+    fontFamily:FONTS.bold,
+    letterSpacing:0.1,
+    
   },
 });

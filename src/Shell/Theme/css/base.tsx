@@ -59,12 +59,12 @@ export const OBJECT_TWO= require('../../../../assets/objecttwo.png');
 export const OBJECT_THREE= require('../../../../assets/objectthree.png');
 export const GIF=require('../../../../assets/Full.gif');
 export const Line= require('../../../../assets/Line.png');
-export const TRANSFER_FILE= require('../../../../assets/transferfile.png');
+export const GROUP_ICON= require('../../../../assets/Group.png');
 export const PRIMERY_CARD= require('../../../../assets/primarycard.png');
-export const Group_Icon= require('../../../../assets/Group.png');
-export const Component_Icon= require('../../../../assets/Component.png');
 export const VIDEO_ICON= require('../../../../assets/videoicon.png');
 export const USER_ADD= require('../../../../assets/user-plus.png');
+export const COMPONENT_ICON= require('../../../../assets/Component.png');
+export const USER_ADD_NEW= require('../../../../assets/user-plus-new.png');
 
 export const BACKGROUND= require('../../../../assets/background.png');
 
@@ -78,12 +78,12 @@ const BASELINE_GAPS_DIRECTIONS: any = {
 };
 
 export const FONTS = {
-  light: 'Proxima-Nova-Light',
-  regular: 'Proxima-Nova-Regular',
-  medium: 'Proxima-Nova-Thin',
-  semiBold: 'Proxima-Nova-SemiBold',
-  bold: 'Proxima-bold',
-  black: 'Proxima-Black',
+  light: 'Proxima-Nova-Alt-Light',
+  regular: 'ProximaNova-Regular',
+  medium: 'Proxima-Nova-Alt-Thin',
+  semiBold: 'Proxima-Nova-Semibold',
+  bold: 'Proxima-Nova-Alt-Bold',
+  black: 'Proxima-Nova-Black',
 };
 
 const BASELINE_GAPS = {
@@ -265,7 +265,7 @@ export const baseStyles = StyleSheet.create({
     ...ANDROID_FONT_MARGIN,
   },
   fontType: {
-    fontFamily: FONTS.regular,
+    fontFamily: FONTS.regualr,
     ...ANDROID_FONT_MARGIN,
   },
   fontLight: {

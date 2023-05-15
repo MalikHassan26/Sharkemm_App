@@ -7,7 +7,7 @@ import {
   ImageBackground,Image
 } from 'react-native';
 import * as Progress from 'react-native-progress';
-import {CARDOCEAN, COLOR_PROGRESS_BAR, EIGHTEEN_PERCENT, FONTS, FONT_SCALE, HALF_MULTICOLOR, THEME_COLORS, THEME_TEXT_COLORS, THIRTEEN_PERCENT, VALET_TITLE} from '../Shell/Theme/css/base';
+import {CARDOCEAN, COLOR_PROGRESS_BAR, DIMENSIONS, EIGHTEEN_PERCENT, FONTS, FONT_SCALE, HALF_MULTICOLOR, THEME_COLORS, THEME_TEXT_COLORS, THIRTEEN_PERCENT, VALET_TITLE} from '../Shell/Theme/css/base';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 const ClassCard = ({subjectName = 'Physics', percent = 10, noOfCards = 5,classofMastery,vault,total}) => {
   return (
@@ -37,12 +37,16 @@ const ClassCard = ({subjectName = 'Physics', percent = 10, noOfCards = 5,classof
             HALF_MULTICOLOR
             }
           resizeMode="contain"
-          style={[styles?.imageView,{height:vault?'100%':'90%'}]}>
+          style={[styles?.imageView,{height:vault && !classofMastery?60:80,
+          marginBottom:!classofMastery && vault?0:-15,
+          }]}>
           {vault && !classofMastery ?
           <View style={{alignContent:'center',alignItems:'center'}}>
           <Text
             style={{
-              height: 20,color:THEME_COLORS.lightBlue,fontSize:18,fontWeight:'bold'
+              height: 20,
+              fontFamily:FONTS.regular,
+              color:THEME_COLORS.lightBlue,fontSize:12/FONT_SCALE,fontWeight:'bold',
             }}>
               
             {percent}{classofMastery ? '%' :null}
@@ -56,20 +60,20 @@ const ClassCard = ({subjectName = 'Physics', percent = 10, noOfCards = 5,classof
           </View>:
            <Text
            style={{
-             height: vault?30:50,color:THEME_COLORS.lightBlue,fontSize:18,fontWeight:'bold',top:vault?10:null
+             height: vault?30:50,color:THEME_COLORS.lightBlue,fontSize:18,fontWeight:'bold',top:vault?10:null,lineHeight:20
            }}>    
            {percent}%
          </Text> }
          {classofMastery &&
           <Text
             style={{
-              height: 30,color:THEME_COLORS.lightBlue,fontSize:9,
+              height: 30,color:THEME_COLORS.lightBlue,fontSize:12,lineHeight:17,fontFamily:FONTS.regular
           }}>
            Class Mastery
           </Text> 
         }
         </ImageBackground>
-        <View style={[styles?.bottomView,{marginTop:vault?-10:-20}]}>
+        <View style={[styles?.bottomView,{marginTop:vault?-10:-25}]}>
           {classofMastery || !vault ?
         <View style={{flexDirection:'row',justifyContent:'space-between'}}>
       <Text
@@ -87,7 +91,7 @@ const ClassCard = ({subjectName = 'Physics', percent = 10, noOfCards = 5,classof
         </View>
         :null}
        {classofMastery || !vault ?
-      <Image source={COLOR_PROGRESS_BAR} resizeMode='contain'
+      <Image source={COLOR_PROGRESS_BAR} resizeMode='cover'
         style={{width:'100%'}}></Image>:null}
           {((vault  && !classofMastery && !total  ) || ! vault )&&
       <View style={{flexDirection:'row',justifyContent:'space-between',top:vault?10:0}}>
@@ -120,7 +124,7 @@ const ClassCard = ({subjectName = 'Physics', percent = 10, noOfCards = 5,classof
           marginTop:15,alignContent:'center'}}>
           <Text
               style={{
-                color: THEME_COLORS.lightBlue,fontSize:12/FONT_SCALE,fontFamily:FONTS.regular
+                color: THEME_COLORS.lightBlue,fontSize:14/FONT_SCALE,fontFamily:FONTS.regular,lineHeight:18
               }}>
                  <Ionicons name={'square'} color={'#C60237'}/>
                
@@ -142,8 +146,11 @@ const ClassCard = ({subjectName = 'Physics', percent = 10, noOfCards = 5,classof
 };
 const styles = StyleSheet.create({
   cardView: {
-    width: Dimensions.get('screen').width / 2.5,
-    height: 150,
+    width:DIMENSIONS.fullWidth / 2.35,
+    height:DIMENSIONS.fullHeight / 5.0,
+    //width: Dimensions.get('screen').width / 2.36,
+   // height: Dimensions.get('screen').height / 5.30,
+    // height: 186,
     backgroundColor: 'white',
     borderRadius: 10,
     elevation: 8,
@@ -156,7 +163,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
-    height: '20%',
+   
+    height: 37,
   },
   bottomView: {
    // width: '100%',
@@ -169,11 +177,11 @@ const styles = StyleSheet.create({
   centerView: {
    width: '100%',
    height: '60%',
-  paddingTop: 10,
+  paddingVertical: 10,
 
   },
   imageView: {
-    height: '90%',
+    // height: '90%',
     justifyContent: 'center',
     alignItems: 'center',
   },

@@ -69,11 +69,13 @@ const InitialScreen = ({navigation}) => {
         <Text
           style={[
             {
-              fontSize: 42/ FONT_SCALE,
+              fontSize: 50/ FONT_SCALE,
               color: THEME_COLORS.primary,
               fontFamily:FONTS.bold,
-              // fontWeight: 'bold',
-              letterSpacing: 3,
+              letterSpacing: 0.5,
+              display:'flex',
+              lineHeight:56,
+             
               
             },
           ]}>
@@ -82,12 +84,13 @@ const InitialScreen = ({navigation}) => {
         <Text
           style={[
             {
-              fontSize: 42/ FONT_SCALE,
+              fontSize: 50/ FONT_SCALE,
               color: THEME_COLORS.primary,
-              fontFamily:FONTS.bold,
-              // fontWeight: 'bold',
-              letterSpacing: 3,
-              lineHeight:56
+             fontFamily:FONTS.bold,
+             letterSpacing: 0.5,
+              lineHeight:56,
+              display:'flex',
+             
             },
           ]}>
           {INITIAL_SCREEN.HEADING02}
@@ -96,51 +99,20 @@ const InitialScreen = ({navigation}) => {
         <Text
           style={[
             baseStyles.fs16x,
-            // baseStyles.fontMedium,
             {
               color: THEME_COLORS.primary,
-            
               fontFamily:FONTS.regular,
+              fontWeight:'400',
               textAlign: 'center',
               marginHorizontal:50,
               letterSpacing:0.5,
               lineHeight:24
             },
           ]}>
-          {INITIAL_SCREEN.SUB_HEADING_START}  <Text
-          style={[
-            baseStyles.fs16x,
-            // baseStyles.fontMedium,
-            {
-              color: THEME_COLORS.primary,
-            
-              fontFamily:FONTS.regular,
-              textAlign: 'center',
-              marginHorizontal:50,
-              letterSpacing:0.5,
-              lineHeight:24
-            },
-          ]}>
-          {INITIAL_SCREEN.SUB_HEADING_CENTER}
-        </Text>
+          {INITIAL_SCREEN.SUB_HEADING_START}
         </Text>
         
-        <Text
-          style={[
-            baseStyles.fs16x,
-            // baseStyles.fontMedium,
-            {
-              color: THEME_COLORS.primary,
-            
-              fontFamily:FONTS.regular,
-              textAlign: 'center',
-              marginHorizontal:70,
-              letterSpacing:0.5,
-              lineHeight:24
-            },
-          ]}>
-          {INITIAL_SCREEN.SUB_HEADING_END}
-        </Text>
+      
         </View>
         <CustomButton
           children={

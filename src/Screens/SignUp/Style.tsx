@@ -90,4 +90,5 @@ export const styles = StyleSheet.create({
     backgroundColor: "transparent",
     marginTop: -6,
   },
+
 });

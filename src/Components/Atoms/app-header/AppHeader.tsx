@@ -1,7 +1,7 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 import {StatusBar,Image} from 'react-native';
-import {COLORS, FONT_SCALE, THEME_COLORS, USER_ADD, USER_DUMMY, VIDEO_ICON} from '../../../Shell/Theme/css/base';
+import {COLORS, FONT_SCALE, THEME_COLORS, USER_ADD, USER_ADD_NEW, USER_DUMMY, VIDEO_ICON} from '../../../Shell/Theme/css/base';
 import {ImageBackground} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useFocusEffect} from '@react-navigation/native';
@@ -14,7 +14,8 @@ export default function AppHeader({
   showBack = false,
   onBackPress,
   text,
-  addPerson = true
+  addPerson = true,
+  addUser= true
 }) {
   useFocusEffect(() => {
     if (backgroundLight) {
@@ -61,7 +62,7 @@ export default function AppHeader({
         <Ionicons
           name="chevron-back-sharp"
           onPress={onBackPress}
-          size={22 / FONT_SCALE}
+          size={24 / FONT_SCALE}
           color={THEME_COLORS.white}
         />
        
@@ -69,7 +70,10 @@ export default function AppHeader({
         </View>
         
        {addPerson && <View style={{flex:1,alignContent:'flex-end'}}>
-       <Image source={USER_ADD} resizeMode={'contain'} style={{height:20,width:20,alignSelf:'flex-end'}}/>
+       <Image source={USER_ADD} resizeMode={'contain'} style={{height:25,width:25,alignSelf:'flex-end'}}/>
+        </View>} 
+        {addUser && <View style={{flex:1,alignContent:'flex-end'}}>
+       <Image source={USER_ADD_NEW} resizeMode={'contain'}  style={{height:25,width:25,alignSelf:'flex-end'}}/>
         </View>}
         <View />
       </View>
