@@ -36,12 +36,12 @@ function generateFontSizes() {
 
 /////////////Sharkemm_Images//////////////
 //export const MAINLOGO = require('../Image/mainlogo.png');
-export const MAINLOGO = require('../Image/mainlogo.png');
+export const MAINLOGO = require('../../../../assets/logomain.png');
 export const ALIGNLET = require('../Image/alignleft.png');
 export const FISH = require('../Image/bhindlogo.png');
 export const HALF = require('../Image/completehalf.png');
 export const HALF_QUATER = require('../Image/completehelf.png');
-export const PROGRESS = require('../Image/progress.png');
+// export const PROGRESS = require('../Image/progress.png');
 export const COMEPLETE_CIRCLE = require('../Image/completecircle.png');
 export const USER_DUMMY = require('../Image/userdummy.jpg')
 export const VALET=require('../../../../assets/valet.png');
@@ -59,12 +59,41 @@ export const OBJECT_TWO= require('../../../../assets/objecttwo.png');
 export const OBJECT_THREE= require('../../../../assets/objectthree.png');
 export const GIF=require('../../../../assets/Full.gif');
 export const Line= require('../../../../assets/Line.png');
-export const GROUP_ICON= require('../../../../assets/Group.png');
+export const TRANSFER_FILE= require('../../../../assets/transferfile.png');
 export const PRIMERY_CARD= require('../../../../assets/primarycard.png');
+export const Group_Icon= require('../../../../assets/Group.png');
+export const Component_Icon= require('../../../../assets/Component.png');
 export const VIDEO_ICON= require('../../../../assets/videoicon.png');
 export const USER_ADD= require('../../../../assets/user-plus.png');
-export const COMPONENT_ICON= require('../../../../assets/Component.png');
-export const USER_ADD_NEW= require('../../../../assets/user-plus-new.png');
+ export const BRANCH_ICON= require('../../../../assets/branch-icon.png');
+ export const LOCK_ICON= require('../../../../assets/lock-icon.png');
+ export const FISH_gray= require('../../../../assets/FISH.png');
+ export const FISH_U= require('../../../../assets/FISH_U.png');
+ export const Dolphin= require('../../../../assets/Dolphin.png');
+export const Dolphin_CARD= require('../../../../assets/Dolphin-Card.png');
+export const Dolphion_ICON_CARD= require('../../../../assets/Dolphion-icon-card.png');
+export const Dolphion_ICON_BOOK= require('../../../../assets/Dolphin_icon_Book.png');
+export const Cross_icon= require('../../../../assets/Cross_icon.png');
+export const Dolphin_LIGHT_CARD= require('../../../../assets/Dolphin_LIGHT_CARD.png');
+export const U_TURN_STAR= require('../../../../assets/U_TURN_STAR.png');
+export const branch_icon_book= require('../../../../assets/branch-icon.png');
+export const GRAY_BAR= require('../../../../assets/GRAY_BAR.png');
+export const LOCK_KEY= require('../../../../assets/LOCK_KEY.png');
+export const Divers_icon= require('../../../../assets/Divers_icon.png');
+export const Brainers_icon= require('../../../../assets/Brainers_icon.png');
+export const Skills_icon= require('../../../../assets/Skills_icon.png');
+export const Dolphin_gray_Card= require('../../../../assets/Dolphin_gray-card.png');
+export const fullmetercolor= require('../../../../assets/fullmetercolor.png');
+export const Diamond = require('../../../../assets/Diamond.png')
+export const SETTING_ICON= require('../../../../assets/setting_icon.png');
+export const MULTIPLE_ICON= require('../../../../assets/multiple_icon.png');
+export const ROUND_ARROW= require('../../../../assets/round_arrow.png');
+export const THREE_CARD= require('../../../../assets/three_card.png');
+export const TREE= require('../../../../assets/Tree.png');
+export const White_Shark= require('../../../../assets/White_Shark.png');
+export const Date_e= require('../../../../assets/Date.png');
+
+
 
 export const BACKGROUND= require('../../../../assets/background.png');
 
@@ -78,12 +107,12 @@ const BASELINE_GAPS_DIRECTIONS: any = {
 };
 
 export const FONTS = {
-  light: 'Proxima-Nova-Alt-Light',
-  regular: 'ProximaNova-Regular',
-  medium: 'Proxima-Nova-Alt-Thin',
-  semiBold: 'Proxima-Nova-Semibold',
-  bold: 'Proxima-Nova-Alt-Bold',
-  black: 'Proxima-Nova-Black',
+  light: 'Proxima-Nova-Light',
+  regular: 'Proxima-Nova-Regular',
+  medium: 'Proxima-Nova-Thin',
+  semiBold: 'Proxima-Nova-SemiBold',
+  bold: 'Proxima-bold',
+  black: 'Proxima-Black',
 };
 
 const BASELINE_GAPS = {
@@ -137,6 +166,7 @@ export const THEME_COLORS = {
   tertiary: '#5DA6A7',
   black: '#000000',
   white: '#ffffff',
+  Bg_white: '#f0f0f0',
   draft: '#2F5597',
   lightBlue:'#117A9B'
 };
@@ -265,7 +295,7 @@ export const baseStyles = StyleSheet.create({
     ...ANDROID_FONT_MARGIN,
   },
   fontType: {
-    fontFamily: FONTS.regualr,
+    fontFamily: FONTS.regular,
     ...ANDROID_FONT_MARGIN,
   },
   fontLight: {

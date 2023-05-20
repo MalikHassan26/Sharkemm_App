@@ -109,10 +109,14 @@ const styles = StyleSheet.create({
     // marginRight: 35,
     marginHorizontal: 20,
   },
-  imageView:{
-    alignSelf:'center',
-    marginVertical:40
+  imageView: {
+    alignSelf: 'center',
+    marginVertical: 40,
+    resizeMode: 'contain', // Adjust the resizeMode property
+    maxHeight: 90, // Set a maximum height for the image
 },
+
+
 buttonStyle: {
   backgroundColor: THEME_COLORS.white,
   borderWidth: 2,

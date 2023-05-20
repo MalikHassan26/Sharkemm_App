@@ -29,12 +29,12 @@ import {
   baseStyles,
   CARDOCEAN,
   COMEPLETE_CIRCLE,
-  COMPONENT_ICON,
+  Component_Icon,
   FISH,
   FONT_SCALE,
   FONTS,
   GIF,
-  GROUP_ICON,
+  Group_Icon,
   HALF,
   HALF_MULTICOLOR,
   Line,
@@ -146,7 +146,19 @@ const HomeScreen = ({props,navigation}) => {
   const animatedLogo = new Animated.Value(-40);
   const animatedLeft= new Animated.Value(40)
   const duration = 1500;
-
+  const renderItem = ({item}) => (
+    <TouchableOpacity onPress={() => navigation.navigate('Physics', { itemId: item.id })}>
+    
+      <ClassCard
+        subjectName={item.name}
+        percent={item.percent}
+        noOfCards={item.cardQty}
+        classofMastery={item.classMarsty}
+        vault={item.vault}
+        total={item.total}
+      />
+  </TouchableOpacity>
+  );
 
   return (
     <View style={[{backgroundColor: THEME_COLORS.white}, baseStyles.flex1x]}>
@@ -412,10 +424,10 @@ const HomeScreen = ({props,navigation}) => {
         <Image source={PRIMERY_CARD} style={{height:25,width:25}}/>
       </TouchableOpacity>
       <TouchableOpacity style={styles?.cardsStyle} activeOpacity={0.8}>
-        <Image source={COMPONENT_ICON} style={{height:25,width:25}}/>
+        <Image source={Component_Icon} style={{height:25,width:25}}/>
       </TouchableOpacity>
       <TouchableOpacity style={styles?.cardsStyle} activeOpacity={0.8}>
-        <Image source={GROUP_ICON} style={{height:25,width:25}}/>
+        <Image source={Group_Icon} style={{height:25,width:25}}/>
       </TouchableOpacity>
        </View>
 
@@ -462,16 +474,18 @@ const HomeScreen = ({props,navigation}) => {
     </View>
   );
 };
-const renderItem = ({item}) => (
-  <ClassCard
-    subjectName={item.name}
-    percent={item.percent}
-    noOfCards={item.cardQty}
-    classofMastery={item.classMarsty}
-    vault={item.vault}
-    total={item.total}
-  />
-);
+// const renderItem = ({item}) => (
+//   <TouchableOpacity onPress={() => navigation.navigate('Physics', { itemId: item.id })}>
+//   <ClassCard
+//     subjectName={item.name}
+//     percent={item.percent}
+//     noOfCards={item.cardQty}
+//     classofMastery={item.classMarsty}
+//     vault={item.vault}
+//     total={item.total}
+//   />
+//   </TouchableOpacity>
+// );
 export default HomeScreen;
 
 const styles = StyleSheet.create({

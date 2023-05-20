@@ -3,6 +3,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, {useEffect, useRef, useState} from 'react';
 import {Image, Text, View, Animated, Button} from 'react-native';
+// import { SvgUri, SvgXml } from 'react-native-svg';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {INITIAL_SCREEN} from '../../Constants/core';
 import CustomButton from '../../../src/Components/Atoms/Buttons/buttons';
@@ -66,6 +67,12 @@ const InitialScreen = ({navigation}) => {
           resizeMode={'contain'}
           style={[{width: 200, height: 126,marginBottom:20}]}
         />
+        {/* <SvgUri
+  width={200}
+  height={126}
+  source={MAINLOGO}
+/> */}
+
         <Text
           style={[
             {

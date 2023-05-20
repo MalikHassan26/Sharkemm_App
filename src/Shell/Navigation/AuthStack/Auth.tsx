@@ -4,6 +4,11 @@ import LoginScreen from '../../../Screens/SignIn/SignIn';
 import RegisterScreen from '../../../Screens/SignUp/SignUp';
 import InitialScreen from '../../../Screens/InitialScreen/InitialPage';
 import ForgetPassword from '../../../Screens/ForgetPassword/ForgetPassword';
+import Physics from '../../../Screens/Content/Physics';
+import Subbranch from '../../../Screens/Content/subbranch';
+import Cardocean from '../../../Screens/Content/Cardocean';
+import Subcard from '../../../Screens/Content/Subcard';
+import Flashcard from '../../../Screens/Content/FlashCard';
 
 import {THEME_COLORS} from '../../Theme/css/base';
 import HomeScreen from '../../../Screens/HomeScreen/HomeScreen';
@@ -19,7 +24,7 @@ const Tab = createBottomTabNavigator();
 function AuthNavigation  () {
   return (
     
-    <Stack.Navigator initialRouteName="InitialScreen"   screenOptions={{ headerShown: true }}>
+    <Stack.Navigator  screenOptions={{ headerShown: true }}>
       
        <Stack.Screen
         name="InitialScreen"
@@ -32,6 +37,7 @@ function AuthNavigation  () {
         component={HomeScreen}
         options={{headerShown: false}}
       />
+    
     </Stack.Navigator>
   );
 };
@@ -140,11 +146,49 @@ function App() {
       );
     },
   })}>
-  <Tab.Screen name="Home" component={HomeScreen} />
+
+  {/* <Tab.Screen name="Home" component={HomeScreen} /> */}
+  <Tab.Screen name="Home" >
+    {() => (
+      <Stack.Navigator>
+        <Stack.Screen
+          name="HomeScreen"
+          component={HomeScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Physics"
+          component={Physics}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Subbranch"
+          component={Subbranch}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Cardocean"
+          component={Cardocean}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Subcard"
+          component={Subcard}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Flashcard"
+          component={Flashcard}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    )}
+  </Tab.Screen>
   <Tab.Screen name="Award" component={Home02Stack} />
   <Tab.Screen name="Account" component={Home03Stack} />
   <Tab.Screen name="More" component={Home04Stack} />
 </Tab.Navigator>
+
 
   );
 }
@@ -231,6 +275,26 @@ const MainRouter=()=> {
             fontWeight: 'bold', //Set Header text style
           },
         }}
+      />
+      <Stack.Screen
+        name="Physics"
+        component={Physics}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Subbranch"
+        component={Subbranch}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Cardocean"
+        component={Cardocean}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Subcard"
+        component={Subcard}
+        options={{headerShown: false}}
       />
 
       </Stack.Navigator>
