@@ -192,22 +192,23 @@ const HomeScreen = ({props,navigation}) => {
           </View>
         </View>
         <View style={[baseStyles.flex1, {flexDirection: 'row',marginHorizontal:15}]}>
-          <View style={{flex:0.8}}>
-            <View>
+          <View style={{flex:0.82}}>
+            <View style={{top:1}}>
                 <Text
                   style={{
-                    fontSize: 24 / FONT_SCALE,
+                    fontSize: 27 / FONT_SCALE,
                     color: '#fff',
                     fontWeight:'700',
                     fontFamily:FONTS.bold,
-                    lineHeight:30,
-                    top: 33,
+                    lineHeight:25,
+                    bottom:-25,
+                    // top: 18,
                     left: 60,
                     letterSpacing:3
                   }}>
                   {" "}Hi, Jolliet!
                 </Text>
-                <Image source={FISH} style={{width:'100%', height: 50,right:2}}></Image>
+                <Image source={FISH} style={{width:'100%', height: 50,left:1,right:'1%'}}></Image>
                 <FastImage
                  style={{ width: '100%', height: 50,top:-50,opacity:0.4}}
                  source={GIF}
@@ -543,7 +544,7 @@ const styles = StyleSheet.create({
     },
     shadowRadius: 4,
     shadowOpacity: 0.5,
-    backgroundColor: '#203870',
+    backgroundColor:THEME_COLORS.lightBlue,
     justifyContent: 'space-evenly',
     alignItems: 'center',
     flexDirection: 'row',

@@ -64,21 +64,21 @@ const Subbranch = (props, navigation) => {
   // const navigation = useNavigation();
 
   const submitPress = () => {
-    props.navigation.navigate('Cardocean');
+    props.navigation.navigate('Subcard');
   };
 
-  const renderItem = ({item}) => (
-    <TouchableOpacity onPress={() => navigation.navigate('Physics')}>
-      <ClassCard
-        subjectName={item.name}
-        percent={item.percent}
-        noOfCards={item.cardQty}
-        classofMastery={item.classMarsty}
-        vault={item.vault}
-        total={item.total}
-      />
-    </TouchableOpacity>
-  );
+  // const renderItem = ({item}) => (
+  //   <TouchableOpacity onPress={() => navigation.navigate('Physics')}>
+  //     <ClassCard
+  //       subjectName={item.name}
+  //       percent={item.percent}
+  //       noOfCards={item.cardQty}
+  //       classofMastery={item.classMarsty}
+  //       vault={item.vault}
+  //       total={item.total}
+  //     />
+  //   </TouchableOpacity>
+  // );
 
   useEffect(() => {
     setTimeout(() => {
