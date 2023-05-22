@@ -54,7 +54,11 @@ import {
   TREE,
   VALET,
   VALET_TITLE,
+  SETTING_ICON,
   VIDEO_ICON,
+  MULTIPLE_ICON,
+  THREE_CARD,
+  ROUND_ARROW,
 } from '../../Shell/Theme/css/base';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import ClassCard from '../../Components/ClassCard';
@@ -154,7 +158,7 @@ const Flashcard = ({ props, navigation }) => {
         /> */}
       <View
         style={{
-          marginTop: 20, paddingTop: 30, height: 320,
+          marginTop: '5%', paddingTop: '8%', height: '32%',
           backgroundColor: THEME_COLORS.primary, borderBottomStartRadius: 12, elevation: 3,
           borderBottomEndRadius: 12, zIndex: 999
         }}>
@@ -241,12 +245,22 @@ const Flashcard = ({ props, navigation }) => {
               fontStyle: 'normal',
               fontWeight: '400',
               fontSize: 16,
-              top: '7%'
+              top: '9%'
                 
               }}>Card Studied</Text>
             </View>
+            <Image
+                source={Line}
+                style={{
+                  height: '30%',
+                  width: 1,
+                  // position: 'absolute',
+                  left: '15%',
+                  top: '13%',
+                }}
+              />
             {/* ///big circle */}
-            <View style={{ flexDirection: 'column', borderColor: '#FFF',  height: '80%', top: '-20%', width: '60%', left: '25%',  alignItems: 'center' }}>
+            <View style={{ flexDirection: 'column', borderColor: '#FFF',  height: '80%', top: '-18%', width: '55%', left: '25%',  alignItems: 'center' }}>
               <Text style={{
                 position: 'absolute',
                 left:'35%',
@@ -267,7 +281,7 @@ const Flashcard = ({ props, navigation }) => {
                 fontStyle: 'normal',
                 fontWeight: '400',
                 fontSize: 16,
-                top: '-7%'
+                top: '-9%'
               }}>Mastery</Text>
             </View>
             </View>
@@ -308,34 +322,39 @@ const Flashcard = ({ props, navigation }) => {
         <View style={[baseStyles.mH2_5x, { flexDirection: 'row', justifyContent: 'space-between' }]}>
 
           <TouchableOpacity style={[styles?.cardsStyle]} activeOpacity={0.8}>
-            <Image source={VIDEO_ICON} style={{ height: 25, width: 25 }} />
+            <Image source={SETTING_ICON} style={{ height: 25, width: 25 }} />
           </TouchableOpacity>
           <TouchableOpacity style={styles?.cardsStyle} activeOpacity={0.8}>
-            <Image source={PRIMERY_CARD} style={{ height: 25, width: 25 }} />
+            <Image source={MULTIPLE_ICON} style={{ height: 25, width: 25 }} />
           </TouchableOpacity>
           <TouchableOpacity style={styles?.cardsStyle} activeOpacity={0.8}>
-            <Image source={Component_Icon} style={{ height: 25, width: 25 }} />
+            <Image source={ROUND_ARROW} style={{ height: 25, width: 25 }} />
           </TouchableOpacity>
           <TouchableOpacity style={styles?.cardsStyle} activeOpacity={0.8}>
-            <Image source={Group_Icon} style={{ height: 25, width: 25 }} />
+            <Image source={THREE_CARD} style={{ height: 25, width: 25 }} />
           </TouchableOpacity>
 
         </View>
 
       }
+
       <ScrollView>
-        <View style={{ height: 500 }}>
+      
+        <View style={{ height:840,marginTop:'2.5%',position:'relative',alignItems:'center',}}>
 
           {/* //1 */}
-          <View>
+          <View style={{left:'-42%'}}>
             <View style={styles.thirdCard}>
               <View style={styles.childiv}></View>
               <Text style={{
                 position: 'absolute',
                 width: 96.68,
+                alignSelf:'center',
                 height: 37,
-                left: 28.51,
-                top: 104,
+                // left: 21,
+                top: '48%',
+                // bottom:'40%',
+                fontWeight:700,
                 fontFamily: 'Proxima Nova',
                 fontStyle: 'normal',
                 fontSize: 7,
@@ -347,15 +366,18 @@ const Flashcard = ({ props, navigation }) => {
             <View style={styles.secondCard}>
               <View style={styles.childiv}></View>
               <Text style={{
-                position: 'absolute',
-                width: 96.68,
-                height: 37,
-                left: 28.51,
-                top: 104,
-                fontFamily: 'Proxima Nova',
-                fontStyle: 'normal',
-                fontSize: 7,
-                lineHeight: 11,
+               position: 'absolute',
+               width: 96.68,
+               alignSelf:'center',
+               height: 37,
+               // left: 21,
+               top: '48%',
+               // bottom:'40%',
+               fontWeight:700,
+               fontFamily: 'Proxima Nova',
+               fontStyle: 'normal',
+               fontSize: 7,
+               lineHeight: 11,
 
               }} >What are two things you can never eat for breakfast?
                 What are two things you can never eat for breakfast?</Text>
@@ -399,9 +421,12 @@ const Flashcard = ({ props, navigation }) => {
               <Text style={{
                 position: 'absolute',
                 width: 96.68,
+                alignSelf:'center',
                 height: 37,
-                left: 21,
-                top: 104,
+                // left: 21,
+                top: '48%',
+                // bottom:'40%',
+                fontWeight:700,
                 fontFamily: 'Proxima Nova',
                 fontStyle: 'normal',
                 fontSize: 7,
@@ -412,12 +437,13 @@ const Flashcard = ({ props, navigation }) => {
             </View>
           </View>
           {/* //2 */}
-          <View>
+          <View style={{right:'-5%'}} >
             <View style={{
               position: 'absolute',
               width: 131.69,
               height: 230,
-              left: 227,
+              left: 20,
+              // right:20,
               top: 8,
               backgroundColor: '#FFFF',
               borderRadius: 3.66826,
@@ -432,15 +458,18 @@ const Flashcard = ({ props, navigation }) => {
             }}>
               <View style={styles.childiv}></View>
               <Text style={{
-                position: 'absolute',
-                width: 96.68,
-                height: 37,
-                left: 27.51,
-                top: 104,
-                fontFamily: 'Proxima Nova',
-                fontStyle: 'normal',
-                fontSize: 7,
-                lineHeight: 11,
+                 position: 'absolute',
+                 width: 96.68,
+                 alignSelf:'center',
+                 height: 37,
+                 // left: 21,
+                 top: '48%',
+                 // bottom:'40%',
+                 fontWeight:700,
+                 fontFamily: 'Proxima Nova',
+                 fontStyle: 'normal',
+                 fontSize: 7,
+                 lineHeight: 11,
               }}>
                 What are two things you can never eat for breakfast?
                 What are two things you can never eat for breakfast?
@@ -451,7 +480,7 @@ const Flashcard = ({ props, navigation }) => {
               position: 'absolute',
               width: 131.69,
               height: 230,
-              left: 217,
+              left:10,
               top: 4,
               backgroundColor: '#FFFF',
               borderRadius: 3.66826,
@@ -468,9 +497,12 @@ const Flashcard = ({ props, navigation }) => {
               <Text style={{
                 position: 'absolute',
                 width: 96.68,
+                alignSelf:'center',
                 height: 37,
-                left: 28.51,
-                top: 104,
+                // left: 21,
+                top: '48%',
+                // bottom:'40%',
+                fontWeight:700,
                 fontFamily: 'Proxima Nova',
                 fontStyle: 'normal',
                 fontSize: 7,
@@ -485,7 +517,7 @@ const Flashcard = ({ props, navigation }) => {
               position: 'absolute',
               width: 131.69,
               height: 230,
-              left: 207,
+              // left: 207,
               top: 0,
               backgroundColor: '#FFFF',
               borderRadius: 3.66826,
@@ -537,9 +569,12 @@ const Flashcard = ({ props, navigation }) => {
               <Text style={{
                 position: 'absolute',
                 width: 96.68,
+                alignSelf:'center',
                 height: 37,
-                left: 21,
-                top: 104,
+                // left: 21,
+                top: '48%',
+                // bottom:'40%',
+                fontWeight:700,
                 fontFamily: 'Proxima Nova',
                 fontStyle: 'normal',
                 fontSize: 7,
@@ -553,13 +588,13 @@ const Flashcard = ({ props, navigation }) => {
           </View>
 
           {/* //3 */}
-          <View>
+          <View style={{left:'-42%'}}>
 
             <View style={{
               position: 'absolute',
               width: 131.69,
               height: 230,
-              left: 40,
+              left: 20,
               top: 258,
               // color:'black',
 
@@ -578,14 +613,16 @@ const Flashcard = ({ props, navigation }) => {
               <Text style={{
                 position: 'absolute',
                 width: 96.68,
+                alignSelf:'center',
                 height: 37,
-                left: 28.51,
-                top: 104,
+                // left: 21,
+                top: '48%',
+                // bottom:'40%',
+                fontWeight:700,
                 fontFamily: 'Proxima Nova',
                 fontStyle: 'normal',
                 fontSize: 7,
                 lineHeight: 11,
-
               }} >What are two things you can never eat for breakfast?
                 What are two things you can never eat for breakfast?</Text>
             </View>
@@ -594,7 +631,7 @@ const Flashcard = ({ props, navigation }) => {
               position: 'absolute',
               width: 131.69,
               height: 230,
-              left: 30,
+              left: 10,
               top: 254,
               // color:'black',
               backgroundColor: '#FFFF',
@@ -612,9 +649,12 @@ const Flashcard = ({ props, navigation }) => {
               <Text style={{
                 position: 'absolute',
                 width: 96.68,
+                alignSelf:'center',
                 height: 37,
-                left: 28.51,
-                top: 104,
+                // left: 21,
+                top: '48%',
+                // bottom:'40%',
+                fontWeight:700,
                 fontFamily: 'Proxima Nova',
                 fontStyle: 'normal',
                 fontSize: 7,
@@ -628,7 +668,7 @@ const Flashcard = ({ props, navigation }) => {
               position: 'absolute',
               width: 131.69,
               height: 230,
-              left: 20,
+              // left: 20,
               top: 250,
               // color:'black',
               backgroundColor: '#FFFF',
@@ -681,9 +721,12 @@ const Flashcard = ({ props, navigation }) => {
               <Text style={{
                 position: 'absolute',
                 width: 96.68,
+                alignSelf:'center',
                 height: 37,
-                left: 28.51,
-                top: 104,
+                // left: 21,
+                top: '48%',
+                // bottom:'40%',
+                fontWeight:700,
                 fontFamily: 'Proxima Nova',
                 fontStyle: 'normal',
                 fontSize: 7,
@@ -694,13 +737,13 @@ const Flashcard = ({ props, navigation }) => {
             </View>
           </View>
           {/* //4 */}
-          <View>
+          <View style={{right:'-5%'}}>
 
             <View style={{
               position: 'absolute',
               width: 131.69,
               height: 230,
-              left: 227,
+              left: 20,
               top: 258,
               // color:'black',
               backgroundColor: '#FFFF',
@@ -716,15 +759,18 @@ const Flashcard = ({ props, navigation }) => {
             }}>
               <View style={styles.childiv}></View>
               <Text style={{
-                position: 'absolute',
-                width: 96.68,
-                height: 37,
-                left: 28.51,
-                top: 104,
-                fontFamily: 'Proxima Nova',
-                fontStyle: 'normal',
-                fontSize: 7,
-                lineHeight: 11,
+                 position: 'absolute',
+                 width: 96.68,
+                 alignSelf:'center',
+                 height: 37,
+                 // left: 21,
+                 top: '48%',
+                 // bottom:'40%',
+                 fontWeight:700,
+                 fontFamily: 'Proxima Nova',
+                 fontStyle: 'normal',
+                 fontSize: 7,
+                 lineHeight: 11,
 
               }} >What are two things you can never eat for breakfast?
                 What are two things you can never eat for breakfast?</Text>
@@ -734,7 +780,7 @@ const Flashcard = ({ props, navigation }) => {
               position: 'absolute',
               width: 131.69,
               height: 230,
-              left: 217,
+              left: 10,
               top: 254,
               // color:'black',
               backgroundColor: '#FFFF',
@@ -750,16 +796,18 @@ const Flashcard = ({ props, navigation }) => {
             }}>
               <View style={styles.childiv}></View>
               <Text style={{
-                position: 'absolute',
-                width: 96.68,
-                height: 37,
-                left: 28.51,
-                top: 104,
-                fontFamily: 'Proxima Nova',
-                fontStyle: 'normal',
-                fontSize: 7,
-                lineHeight: 11,
-
+                 position: 'absolute',
+                 width: 96.68,
+                 alignSelf:'center',
+                 height: 37,
+                 // left: 21,
+                 top: '48%',
+                 // bottom:'40%',
+                 fontWeight:700,
+                 fontFamily: 'Proxima Nova',
+                 fontStyle: 'normal',
+                 fontSize: 7,
+                 lineHeight: 11,
               }} >What are two things you can never eat for breakfast?
                 What are two things you can never eat for breakfast?</Text>
             </View>
@@ -768,7 +816,7 @@ const Flashcard = ({ props, navigation }) => {
               position: 'absolute',
               width: 131.69,
               height: 230,
-              left: 207,
+              // left: 207,
               top: 250,
               // color:'black',
               backgroundColor: '#FFFF',
@@ -819,30 +867,27 @@ const Flashcard = ({ props, navigation }) => {
                 }} />
               </View>
               <Text style={{
-                position: 'absolute',
-                width: 96.68,
-                height: 37,
-                left: 28.51,
-                top: 104,
-                fontFamily: 'Proxima Nova',
-                fontStyle: 'normal',
-                fontSize: 7,
-                lineHeight: 11,
+                 position: 'absolute',
+                 width: 96.68,
+                 alignSelf:'center',
+                 height: 37,
+                 // left: 21,
+                 top: '48%',
+                 // bottom:'40%',
+                 fontWeight:700,
+                 fontFamily: 'Proxima Nova',
+                 fontStyle: 'normal',
+                 fontSize: 7,
+                 lineHeight: 11,
 
               }} >What are two things you can never eat for breakfast?
                 What are two things you can never eat for breakfast?</Text>
             </View>
           </View>
-
-
-        </View>
-
-      </ScrollView>
-      {/* //DOTS  */}
-      <View style={{ width: '20%', flexDirection: 'row', left: '23%', right: '23%', bottom: '1%' }}>
+          <View style={{flexDirection:'row',bottom:'-130%' }}>
         <View style={{
           // position:'absolute',
-          height: 10, width: 10, backgroundColor: '#203870', shadowColor: 'rgba(0, 0, 0, 0.3)', borderRadius: 5,
+          height: 10, width: 10, backgroundColor: THEME_TEXT_COLORS.primary, shadowColor: 'rgba(0, 0, 0, 0.3)', borderRadius: 5,
           shadowOffset: { width: 0, height: 1 },
           shadowRadius: 2,
           shadowOpacity: 1,
@@ -851,7 +896,7 @@ const Flashcard = ({ props, navigation }) => {
         }}></View>
         <View style={{
           // position:'absolute',
-          height: 10, width: 10, backgroundColor: '#117A9B', left: 10, shadowColor: 'rgba(0, 0, 0, 0.3)', borderRadius: 5,
+          height: 10, width: 10, backgroundColor:THEME_COLORS.lightBlue, left: 10, shadowColor: 'rgba(0, 0, 0, 0.3)', borderRadius: 5,
           shadowOffset: { width: 0, height: 1 },
           shadowRadius: 2,
           shadowOpacity: 1,
@@ -860,13 +905,18 @@ const Flashcard = ({ props, navigation }) => {
         }}></View>
         <View style={{
           // position:'absolute',
-          height: 10, width: 10, backgroundColor: '#117A9B', left: 20, shadowColor: 'rgba(0, 0, 0, 0.3)', borderRadius: 5,
+          height: 10, width: 10, backgroundColor:THEME_COLORS.lightBlue, left: 20, shadowColor: 'rgba(0, 0, 0, 0.3)', borderRadius: 5,
           shadowOffset: { width: 0, height: 1 },
           shadowRadius: 2,
           shadowOpacity: 1,
           elevation: 2,
 
         }}></View></View>
+        </View>
+
+       
+      </ScrollView>
+     
     </View>
   );
 };
@@ -890,7 +940,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: 131.69,
     height: 230,
-    left: 40,
+    left: 20,
     top: 8,
     color: 'black',
     backgroundColor: '#FFFF',
@@ -908,7 +958,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: 131.69,
     height: 230,
-    left: 30,
+    left: 10,
+    // right:6,
     top: 4,
     color: 'black',
     backgroundColor: '#FFFF',
@@ -927,7 +978,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: 131.69,
     height: 230,
-    left: 20,
+    // alignItems:'center',
+    // justifyContent:'center',
+    // left: 20,
     top: 0,
     color: 'black',
     backgroundColor: '#FFFF',

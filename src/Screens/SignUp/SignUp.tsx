@@ -697,7 +697,7 @@ const styles = StyleSheet.create({
   buttonTextStyle: {
     color: '#117A9B',
     // paddingVertical: 10,
-    // lineHeight:20,
+    lineHeight:20,
     // padding:10,
     fontSize: 16 / FONT_SCALE,
     fontFamily:FONTS.bold,

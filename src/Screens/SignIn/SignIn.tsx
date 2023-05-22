@@ -165,6 +165,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     marginTop: 20,
     alignSelf:'center',
+    justifyContent:'center',
     marginBottom: 20,
     height:50,
     width:182,
@@ -172,12 +173,12 @@ const styles = StyleSheet.create({
   },
   buttonTextStyle: {
     color: '#117A9B',
-    paddingVertical: 10,
+    // paddingVertical: 10,
     lineHeight:20,
-    fontSize: 16 / FONT_SCALE,
-    fontFamily:FONTS.bold,
+    fontSize: 16,
+    fontFamily:'Proxima Nova',
     letterSpacing:0.1,
-    
+    fontWeight:700
   },
   inputStyle: {
     width: '100%',

@@ -200,7 +200,7 @@ const HomeScreen = ({props,navigation}) => {
                     color: '#fff',
                     fontWeight:'700',
                     fontFamily:FONTS.bold,
-                    lineHeight:25,
+                    // lineHeight:30,
                     bottom:-25,
                     // top: 18,
                     left: 60,

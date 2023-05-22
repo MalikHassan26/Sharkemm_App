@@ -123,8 +123,8 @@ const InitialScreen = ({navigation}) => {
         </View>
         <CustomButton
           children={
-            <Text style={{color: '#fff',fontSize:15/FONT_SCALE,
-            fontFamily:FONTS.bold,lineHeight:20,letterSpacing:0.1}}>{INITIAL_SCREEN.SIGN_UP}</Text>
+            <Text style={{color: '#fff',fontSize:15/FONT_SCALE, fontWeight:700,
+            fontFamily:'Proxima Nova',lineHeight:20,letterSpacing:0.1}}>{INITIAL_SCREEN.SIGN_UP}</Text>
           }
           onPress={() => navigation.navigate('RegisterScreen')}
           style={Style.SingUpButton}
@@ -133,7 +133,7 @@ const InitialScreen = ({navigation}) => {
         <CustomButton
           children={
             <Text style={{color: '#203870',
-            fontSize:15 / FONT_SCALE,
+            fontSize:15 / FONT_SCALE, fontWeight:700,
             fontFamily:FONTS.bold,lineHeight:20,letterSpacing:0.1}}>{INITIAL_SCREEN.SIGN_IN}</Text>
           }
           onPress={() => navigation.navigate('LoginScreen')}
